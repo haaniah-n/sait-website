@@ -1,0 +1,10 @@
+export { people } from "@/data/people";
+export { events } from "@/data/events";
+export { careers } from "@/data/careers";
+export { alumni } from "@/data/alumni";
+export { achievements } from "@/data/achievements";
+export { activity } from "@/data/activity";
+export { notifications } from "@/data/notifications";
+export { projects } from "@/data/projects";
+export { exploreItems } from "@/data/explore";
+export { site, footerNav } from "@/data/site";
