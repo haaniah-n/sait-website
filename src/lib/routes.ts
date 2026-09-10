@@ -2,6 +2,7 @@ import type { NavItem } from "@/types";
 
 export const siteRoutes = {
   home: "/",
+
   about: "/about",
   people: "/people",
   events: "/events",
@@ -15,25 +16,28 @@ export const siteRoutes = {
   explore: "/explore",
 } as const;
 
+/**
+ * Primary navigation
+ *
+ * Keep this intentionally small.
+ * Individual section pages will handle deeper navigation.
+ */
 export const desktopNav: NavItem[] = [
-  { label: "Home", href: siteRoutes.home },
-  { label: "About", href: siteRoutes.about },
-  { label: "People", href: siteRoutes.people },
-  { label: "Events", href: siteRoutes.events },
-  { label: "Careers", href: siteRoutes.careers },
-  { label: "Alumni", href: siteRoutes.alumni },
-];
-
-export const moreNav: NavItem[] = [
-  { label: "Achievements", href: siteRoutes.achievements },
-  { label: "Activity", href: siteRoutes.activity },
-  { label: "Projects", href: siteRoutes.projects },
   { label: "Explore", href: siteRoutes.explore },
+  { label: "Community", href: siteRoutes.people },
+  { label: "Events", href: siteRoutes.events },
+  { label: "Opportunities", href: siteRoutes.careers },
+  { label: "Activity", href: siteRoutes.activity },
+  { label: "About", href: siteRoutes.about },
 ];
 
+/**
+ * Mobile navigation
+ *
+ * Mobile gets the same primary structure, with utility links below.
+ */
 export const mobileNav: NavItem[] = [
   ...desktopNav,
-  ...moreNav,
   { label: "Notifications", href: siteRoutes.notifications },
   { label: "Contact", href: siteRoutes.contact },
 ];
