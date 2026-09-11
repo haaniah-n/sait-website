@@ -59,7 +59,7 @@ export function ITEcosystem() {
   return (
     <div
       aria-label="SAIT ecosystem navigation"
-      className="relative mx-auto aspect-square w-full max-w-[620px]"
+      className="hero-network relative mx-auto aspect-square w-full max-w-[620px]"
     >
       {/* Outer atmosphere */}
       <div
@@ -82,7 +82,7 @@ export function ITEcosystem() {
           fill="none"
           stroke="currentColor"
           strokeWidth="1"
-          className="text-line"
+          className="network-lines"
         >
           <path d="M110 130 L300 300 L490 130" />
           <path d="M70 320 L300 300 L530 320" />
@@ -106,7 +106,7 @@ export function ITEcosystem() {
           className="absolute h-44 w-44 rounded-full bg-accent/10 blur-2xl sm:h-52 sm:w-52"
         />
 
-        <div className="relative flex h-36 w-36 flex-col items-center justify-center rounded-full border border-accent/30 bg-surface-ink text-center shadow-[var(--shadow-lift)] sm:h-44 sm:w-44">
+        <div className="network-core relative flex h-36 w-36 flex-col items-center justify-center rounded-full border border-accent/30 bg-surface-ink text-center shadow-[var(--shadow-lift)] sm:h-44 sm:w-44">
           <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-nav-muted">
             The ecosystem
           </span>
@@ -127,9 +127,9 @@ export function ITEcosystem() {
           <Link
             key={node.label}
             href={node.href}
-            className={`group absolute z-20 ${node.position}`}
+            className={`network-node group absolute z-20 ${node.position}`}
           >
-            <span className="flex min-w-[112px] items-center gap-2.5 rounded-[var(--radius-lg)] border border-line bg-surface/95 px-3 py-2.5 shadow-[var(--shadow-sm)] backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] group-hover:-translate-y-1 group-hover:border-accent/40 group-hover:shadow-[var(--shadow-lift)] sm:min-w-[132px] sm:px-4 sm:py-3">
+            <span className="flex min-w-[112px] items-center gap-2.5 rounded-[var(--radius-lg)] border border-line bg-surface px-3 py-2.5 shadow-[var(--shadow-sm)] transition-[transform,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] group-hover:-translate-y-1 group-hover:border-accent/40 group-hover:shadow-[var(--shadow-lift)] sm:min-w-[132px] sm:px-4 sm:py-3">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-accent-soft text-accent transition-transform duration-[var(--duration-base)] group-hover:scale-105">
                 <Icon size={16} aria-hidden="true" />
               </span>

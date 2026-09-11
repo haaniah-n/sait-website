@@ -8,8 +8,8 @@ type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-surface-ink text-nav-fg hover:bg-foreground shadow-[var(--shadow-md)]",
-  accent: "bg-accent text-white hover:bg-accent-hover shadow-[var(--shadow-sm)]",
+    "bg-surface-2 text-foreground border border-line-strong hover:border-accent/50 hover:bg-surface shadow-[var(--shadow-md)]",
+  accent: "bg-accent text-on-accent hover:bg-accent-hover shadow-[var(--shadow-sm)]",
   secondary: "bg-surface text-foreground border border-line hover:border-line-strong hover:bg-surface-2",
   ghost: "bg-transparent text-foreground hover:bg-surface-2",
   nav: "bg-white/8 text-nav-fg hover:bg-white/14",

@@ -33,7 +33,7 @@ export function Footer() {
               {site.name}
             </p>
 
-            <p className="mt-1 text-sm leading-6 text-white/50">
+            <p className="mt-1 text-sm leading-6 text-nav-muted">
               {site.division}
               <br />
               {site.school}
@@ -47,7 +47,7 @@ export function Footer() {
 
               <a
                 href={`mailto:${site.email}`}
-                className="flex items-center gap-2 text-sm text-nav-muted transition-colors hover:text-white"
+                className="flex items-center gap-2 text-sm text-nav-muted transition-colors hover:text-accent-fg"
               >
                 <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {site.email}
@@ -56,27 +56,27 @@ export function Footer() {
 
             {/* Social links */}
             <div className="mt-6 flex items-center gap-2">
-              <span className="mr-2 text-[10px] uppercase tracking-[0.14em] text-white/40">
+              <span className="mr-2 text-[10px] uppercase tracking-[0.14em] text-nav-muted">
                 Follow
               </span>
 
               <span
                 aria-label="Instagram coming soon"
-                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-white/40"
+                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-nav-muted"
               >
                 <Instagram size={15} aria-hidden="true" />
               </span>
 
               <span
                 aria-label="LinkedIn coming soon"
-                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-white/40"
+                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-nav-muted"
               >
                 <Linkedin size={15} aria-hidden="true" />
               </span>
 
               <span
                 aria-label="GitHub coming soon"
-                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-white/40"
+                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-nav-muted"
               >
                 <Github size={15} aria-hidden="true" />
               </span>
@@ -93,7 +93,7 @@ export function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="group inline-flex min-h-10 items-center gap-1 text-sm text-nav-muted transition-colors hover:text-white"
+                      className="group inline-flex min-h-10 items-center gap-1 text-sm text-nav-muted transition-colors hover:text-accent-fg"
                     >
                       {item.label}
 
@@ -113,7 +113,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-2 py-4 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-2 py-4 text-xs text-nav-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.shortName} · {site.university}
           </p>

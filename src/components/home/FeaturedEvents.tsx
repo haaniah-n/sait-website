@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
-import { MotionReveal } from "@/components/effects/motion-reveal";
+import { MotionReveal } from "./HomeReveal";
 import { nextEvent, upcomingEvents as scheduledEvents, eventCategoryLabels, formatEventDate, formatEventTime } from "@/data/events";
 import { siteRoutes } from "@/lib/routes";
 
@@ -23,7 +23,7 @@ const upcomingEvents = scheduledEvents.slice(1, 4).map((event) => ({
 
 export function FeaturedEvents() {
   return (
-    <section className="border-b border-line bg-surface">
+    <section className="home-events border-b border-line bg-surface">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -57,7 +57,7 @@ export function FeaturedEvents() {
         <MotionReveal style={{ animationDelay: "180ms" }}>
           <Link
             href={`${siteRoutes.events}#next-up`}
-            className="group mt-14 grid overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] lg:grid-cols-[1.25fr_0.75fr]"
+            className="event-feature group mt-14 grid overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] lg:grid-cols-[1.25fr_0.75fr]"
           >
             <div className="relative overflow-hidden p-7 sm:p-10 lg:p-12">
               <div
@@ -89,13 +89,13 @@ export function FeaturedEvents() {
               </div>
             </div>
 
-            <div className="border-t border-white/10 bg-white/4 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
+            <div className="event-details border-t border-white/10 bg-white/4 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
               <div className="grid gap-7">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-nav-muted">
                     Date
                   </p>
-                  <p className="mt-2 text-lg font-semibold">
+                  <p className="event-date mt-2 text-lg font-semibold">
                     {featuredEvent.date}
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export function FeaturedEvents() {
             >
               <Link
                 href={`${siteRoutes.events}#event-${event.id}`}
-                className="group block rounded-[var(--radius-lg)] border border-line bg-background p-5 transition-[transform,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:border-accent/30 hover:shadow-[var(--shadow-sm)]"
+                className="event-preview group block rounded-[var(--radius-lg)] border border-line bg-background p-5 transition-[transform,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:border-accent/30 hover:shadow-[var(--shadow-sm)]"
               >
                 <div className="flex items-center justify-between gap-4">
                   <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">

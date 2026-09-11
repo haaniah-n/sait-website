@@ -1,33 +1,12 @@
 import { ArrowRight, Sparkles } from "lucide-react";
-import { MotionReveal } from "@/components/effects/motion-reveal";
+import { MotionReveal } from "./HomeReveal";
 import { ButtonLink } from "@/components/ui/button";
 import { ITEcosystem } from "./ITEcosystem";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-line bg-background">
-      {/* Subtle ambient background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-accent/10 blur-3xl"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-10rem] top-[-8rem] h-[30rem] w-[30rem] rounded-full bg-accent/6 blur-3xl"
-      />
-
-      {/* Fine grid */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-
+    <section className="home-hero relative overflow-hidden border-b border-line bg-background">
+      <div className="hero-connections" aria-hidden="true"><span /><span /><span /></div>
       <div className="relative mx-auto grid min-h-[calc(100svh-4.5rem)] max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8 lg:px-10 lg:py-20">
         {/* Copy */}
         <div className="max-w-2xl">
@@ -54,7 +33,7 @@ export function Hero() {
             style={{ animationDelay: "140ms" }}
             className="motion-rise"
           >
-            <h1 className="text-display max-w-[11ch] text-foreground">
+            <h1 className="hero-title text-display max-w-[11ch] text-foreground">
               BUILD.
               <br />
               LEARN.
@@ -115,6 +94,7 @@ export function Hero() {
           <ITEcosystem />
         </MotionReveal>
       </div>
+      <div className="hero-scroll" aria-hidden="true"><span />Scroll to connect</div>
     </section>
   );
 }

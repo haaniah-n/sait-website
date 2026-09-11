@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, Code2, Cpu, Globe2 } from "lucide-react";
-import { MotionReveal } from "@/components/effects/motion-reveal";
+import { MotionReveal } from "./HomeReveal";
 import { featuredProjects } from "@/data/projects";
 
 const featuredProject = {
@@ -17,7 +17,7 @@ const projects = featuredProjects.slice(1).map((project) => ({
 
 export function ProjectsSection() {
   return (
-    <section className="border-b border-line bg-background">
+    <section className="home-projects border-b border-line bg-background">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -50,7 +50,7 @@ export function ProjectsSection() {
         <MotionReveal style={{ animationDelay: "180ms" }}>
           <Link
             href="/projects"
-            className="group relative mt-14 block overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
+            className="project-feature group relative mt-14 block overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
           >
             <div
               aria-hidden="true"
@@ -94,8 +94,8 @@ export function ProjectsSection() {
                 </span>
               </div>
 
-              {/* Visual placeholder */}
-              <div className="flex min-h-52 items-center justify-center rounded-[var(--radius-lg)] border border-white/10 bg-white/4 p-8 lg:min-h-64 lg:w-72">
+              {/* Typographic project identity */}
+              <div className="project-identity flex min-h-52 items-center justify-center rounded-[var(--radius-lg)] border border-white/10 bg-white/4 p-8 lg:min-h-64 lg:w-72">
                 <div className="text-center">
                   <p className="font-display text-6xl font-bold tracking-[-0.06em] text-nav-fg">
                     N
@@ -110,7 +110,7 @@ export function ProjectsSection() {
         </MotionReveal>
 
         {/* Smaller projects */}
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
+        <div className="project-previews mt-5 grid gap-3 md:grid-cols-2">
           {projects.map((project, index) => {
             const Icon = project.icon;
 

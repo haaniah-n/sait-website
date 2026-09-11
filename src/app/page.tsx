@@ -6,9 +6,11 @@ import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { AchievementsSection } from "@/components/home/AchievementsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
+import "@/components/home/home.css";
+
 export default function HomePage() {
   return (
-    <main>
+    <main className="sait-home">
       <Hero />
       <IntroSection />
       <EcosystemSection />

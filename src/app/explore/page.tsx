@@ -388,7 +388,7 @@ export default function ExplorePage() {
 
                 <Link
                   href={siteRoutes.contact}
-                  className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-[var(--radius-md)] bg-accent px-5 text-sm font-medium text-white transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-accent-hover"
+                  className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-[var(--radius-md)] bg-accent px-5 text-sm font-medium text-on-accent transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-accent-hover"
                 >
                   Get involved
                   <ArrowRight size={17} aria-hidden="true" />

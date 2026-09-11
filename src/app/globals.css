@@ -2,35 +2,39 @@
 
 :root {
   /* Canvas */
-  --background: #f3f5f8;
-  --foreground: #101826;
-  --muted: #5a6576;
-  --surface: #ffffff;
-  --surface-2: #e8edf3;
-  --surface-ink: #0b1220;
-  --line: rgba(16, 24, 38, 0.1);
-  --line-strong: rgba(16, 24, 38, 0.18);
+  color-scheme: dark;
+  --background: #07111f;
+  --foreground: #f4f7fa;
+  --muted: #9aa8ba;
+  --surface: #0d1828;
+  --surface-2: #132033;
+  --surface-ink: #0a1524;
+  --line: rgba(224, 236, 250, 0.09);
+  --line-strong: rgba(224, 236, 250, 0.22);
+  --control-line: #61748a;
 
   /* Brand — one primary accent (teal), ink as structure */
-  --accent: #0f8f86;
-  --accent-hover: #0c7a73;
-  --accent-soft: rgba(15, 143, 134, 0.12);
-  --accent-fg: #073834;
+  --accent: #19c6b3;
+  --accent-hover: #7ce7dc;
+  --accent-soft: rgba(25, 198, 179, 0.1);
+  --accent-fg: #7ce7dc;
+  --on-accent: #071b20;
+  --connection: rgba(124, 231, 220, 0.25);
 
-  --nav: #0b1220;
-  --nav-fg: #eef3f8;
-  --nav-muted: rgba(238, 243, 248, 0.68);
+  --nav: var(--surface);
+  --nav-fg: var(--foreground);
+  --nav-muted: var(--muted);
 
   /* Semantic */
-  --success: #157a4b;
-  --success-soft: rgba(21, 122, 75, 0.12);
-  --warning: #b45309;
-  --warning-soft: rgba(180, 83, 9, 0.12);
-  --danger: #b42318;
-  --danger-soft: rgba(180, 35, 24, 0.12);
+  --success: #83d5a9;
+  --success-soft: rgba(131, 213, 169, 0.1);
+  --warning: #edc181;
+  --warning-soft: rgba(237, 193, 129, 0.1);
+  --danger: #f29b9f;
+  --danger-soft: rgba(242, 155, 159, 0.1);
 
   --ring: var(--accent);
-  --overlay: rgba(11, 18, 32, 0.48);
+  --overlay: rgba(3, 9, 17, 0.76);
 
   /* Radius */
   --radius-sm: 0.375rem;
@@ -71,9 +75,9 @@
   --duration-slow: 360ms;
 
   /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(16, 24, 38, 0.05);
-  --shadow-md: 0 8px 24px rgba(16, 24, 38, 0.06);
-  --shadow-lift: 0 14px 32px rgba(16, 24, 38, 0.1);
+  --shadow-sm: 0 2px 5px rgba(2, 7, 14, 0.2);
+  --shadow-md: 0 8px 24px rgba(2, 7, 14, 0.24);
+  --shadow-lift: 0 14px 32px rgba(2, 7, 14, 0.32);
   --glow-accent: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
@@ -90,6 +94,7 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
   --color-accent-fg: var(--accent-fg);
+  --color-on-accent: var(--on-accent);
   --color-nav: var(--nav);
   --color-nav-fg: var(--nav-fg);
   --color-nav-muted: var(--nav-muted);
@@ -140,7 +145,7 @@ a {
 
 .field {
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--control-line);
   border-radius: var(--radius-md);
   background: var(--surface);
   color: var(--foreground);
@@ -154,11 +159,12 @@ a {
 }
 
 .field::placeholder {
-  color: color-mix(in srgb, var(--muted) 80%, transparent);
+  color: var(--muted);
+  opacity: 1;
 }
 
 .field:hover {
-  border-color: var(--line-strong);
+  border-color: var(--muted);
 }
 
 .field:focus {
@@ -168,12 +174,29 @@ a {
 }
 
 .field:disabled {
-  opacity: 0.55;
+  background: var(--surface-2);
+  color: var(--muted);
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
+.field[aria-invalid="true"] { border-color: var(--danger); }
+.field[aria-invalid="true"]:focus { box-shadow: 0 0 0 4px var(--danger-soft); }
+.field option { background: var(--surface-2); color: var(--foreground); }
+.field::file-selector-button { cursor: pointer; transition: background-color var(--duration-fast); }
+.field::file-selector-button:hover { background: var(--accent-soft); }
+.field:-webkit-autofill {
+  -webkit-text-fill-color: var(--foreground);
+  caret-color: var(--foreground);
+  box-shadow: 0 0 0 1000px var(--surface-2) inset;
+}
+.field:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px var(--surface-2) inset, 0 0 0 4px var(--accent-soft);
+}
+input, select, textarea { accent-color: var(--accent); }
+
 select.field {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%235a6576' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239aa8ba' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
 }

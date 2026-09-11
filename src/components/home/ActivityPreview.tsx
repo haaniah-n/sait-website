@@ -83,7 +83,7 @@ export function ActivityPreview() {
 
               <Link
                 href="/activity"
-                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-accent px-4 text-sm font-medium text-white transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-accent-hover"
+                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-accent px-4 text-sm font-medium text-on-accent transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-accent-hover"
               >
                 <Plus size={16} aria-hidden="true" />
                 Log activity

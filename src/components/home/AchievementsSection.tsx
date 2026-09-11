@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight, Award, Trophy } from "lucide-react";
-import { MotionReveal } from "@/components/effects/motion-reveal";
+import { ArrowUpRight, Award, CircleDot } from "lucide-react";
+import { MotionReveal } from "./HomeReveal";
 import { spotlightAchievements } from "@/data/achievements";
 
 const achievements = spotlightAchievements.map((achievement, index) => ({
@@ -11,7 +11,7 @@ const achievements = spotlightAchievements.map((achievement, index) => ({
 
 export function AchievementsSection() {
   return (
-    <section className="border-b border-line bg-surface-ink text-nav-fg">
+    <section className="home-achievements border-b border-line bg-surface-ink text-nav-fg">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         {/* Header */}
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -49,7 +49,7 @@ export function AchievementsSection() {
             >
               <Link
                 href="/achievements"
-                className="group grid gap-6 border-b border-white/10 py-8 transition-colors duration-[var(--duration-base)] hover:bg-white/[0.025] sm:grid-cols-[72px_110px_1fr_auto] sm:items-center sm:gap-8 sm:py-9"
+                className="achievement-row group grid gap-6 border-b border-white/10 py-8 transition-colors duration-[var(--duration-base)] hover:bg-white/[0.025] sm:grid-cols-[72px_110px_1fr_auto] sm:items-center sm:gap-8 sm:py-9"
               >
                 {/* Number */}
                 <span className="font-mono text-xs text-nav-muted">
@@ -96,7 +96,7 @@ export function AchievementsSection() {
         <MotionReveal style={{ animationDelay: "520ms" }}>
           <div className="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3 text-sm text-nav-muted">
-              <Trophy size={17} className="text-accent" aria-hidden="true" />
+              <CircleDot size={17} className="text-accent" aria-hidden="true" />
               <span>Illustrative milestones · all achievements shown are fictional.</span>
             </div>
 

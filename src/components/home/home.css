@@ -1,0 +1,120 @@
+/* Homepage composition and artwork use the shared dark semantic palette. */
+.sait-home { --home-teal: var(--accent); }
+.sait-home .text-accent { color: var(--home-teal); }
+.sait-home a.bg-accent { background-color: var(--home-teal); }
+.sait-home a.bg-accent:hover { background-color: var(--accent-hover); }
+.sait-home .text-section { font-size: clamp(2rem, 3.5vw, 3.4rem); line-height: 1.12; letter-spacing: -.045em; }
+.sait-home section { position: relative; }
+.sait-home a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.sait-home .home-reveal { transition: opacity .65s ease, transform .65s var(--ease-out); }
+.sait-home .home-reveal[data-pending] { opacity: 0; }
+.sait-home .home-reveal[data-pending][data-rise="true"] { transform: translateY(22px); }
+.sait-home .home-hero { background: var(--background); isolation: isolate; }
+.sait-home .home-hero > .grid { padding-top: 5rem; padding-bottom: 7rem; }
+.sait-home .hero-title { font-size: clamp(4.5rem, 7.9vw, 7.1rem); line-height: .94; letter-spacing: -.065em; }
+.sait-home .hero-title .text-accent { color: var(--home-teal); }
+.sait-home .hero-connections { position: absolute; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
+.sait-home .hero-connections::before { content: ""; position: absolute; inset: 0 0 0 49%; background: linear-gradient(125deg, var(--surface-2), var(--background)); clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%); }
+.sait-home .hero-connections span { position: absolute; width: 70%; height: 1px; background: var(--line); left: 41%; top: 23%; transform: rotate(-35deg); }
+.sait-home .hero-connections span:nth-child(2) { top: 65%; transform: rotate(35deg); }
+.sait-home .hero-connections span:nth-child(3) { top: 86%; transform: rotate(-35deg); }
+.sait-home .hero-scroll { position: absolute; bottom: 2rem; left: max(1.25rem, calc((100% - 1200px) / 2)); display: flex; gap: .9rem; align-items: center; font: 10px var(--font-mono); text-transform: uppercase; letter-spacing: .18em; color: var(--muted); }
+.sait-home .hero-scroll > span { width: 1px; height: 36px; background: var(--connection); position: relative; overflow: hidden; }
+.sait-home .hero-scroll > span::after { content: ""; position: absolute; width: 1px; height: 14px; background: var(--accent); animation: home-scroll 3s ease-in-out infinite; }
+.sait-home .hero-network { background: radial-gradient(ellipse at center, var(--accent-soft), transparent 62%); filter: drop-shadow(0 22px 25px rgba(2, 7, 14, .22)); }
+.sait-home .hero-network > div:first-child { border: 1px dashed var(--connection); }
+.sait-home .network-lines { color: color-mix(in srgb, var(--accent-fg) 44%, transparent); stroke-width: 1.5; }
+.sait-home .network-core { border: 1px solid var(--connection); box-shadow: 0 0 0 9px var(--background), 0 0 0 10px var(--connection), 0 24px 40px rgba(2, 7, 14, .3); }
+.sait-home .network-node > span { background: var(--surface-2); border-radius: 6px; box-shadow: 0 6px 0 rgba(2, 7, 14, .15), 0 12px 28px rgba(2, 7, 14, .25); transition: transform .3s, box-shadow .3s, border-color .3s; }
+.sait-home .network-node:is(:hover, :focus-visible) > span { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 5px 0 var(--accent-soft), 0 18px 28px rgba(2, 7, 14, .3); }
+.sait-home .hero-network:has(.network-node:is(:hover, :focus-visible)) .network-lines { color: var(--accent); }
+.sait-home .hero-network > span { animation: home-node 5s ease-in-out infinite; }
+.sait-home .hero-network > span:nth-last-child(2) { animation-delay: -2s; }
+.sait-home .home-community { border-bottom: 0; }
+.sait-home .community-sequence { gap: 2rem; position: relative; }
+.sait-home .community-step { position: relative; border-top: 1px solid var(--connection); padding: 1.7rem 0 0; background: transparent; }
+.sait-home .community-step::before { content: ""; position: absolute; top: -5px; left: 0; height: 9px; width: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px var(--surface); }
+.sait-home .community-step:hover { background: transparent; }
+.sait-home .community-step h3 { font-family: var(--font-display); font-size: clamp(2rem, 3.3vw, 3rem); margin-top: 1.5rem; letter-spacing: -.05em; }
+.sait-home .community-step p { max-width: 30ch; }
+.sait-home .home-community .divide-x { border-top: 0; }
+.sait-home .home-community .divide-x .font-display { font-size: clamp(2.5rem, 4vw, 4rem); }
+.sait-home .home-ecosystem { background: var(--background); border-top: 1px solid var(--line); }
+.sait-home .destination-network { position: relative; gap: 1.25rem; }
+.sait-home .destination-network::before { content: ""; position: absolute; left: 50%; top: 8%; bottom: 8%; width: 1px; background: var(--connection); }
+.sait-home .destination-node { position: relative; border-radius: 5px; box-shadow: 0 3px 0 rgba(2, 7, 14, .2); }
+.sait-home .destination-node::before { content: ""; position: absolute; left: -6px; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--background); }
+.sait-home .destination-node > .mt-12 { margin-top: 2rem; }
+.sait-home .destination-node h3 { font-size: 1.3rem; }
+.sait-home .event-feature { border-radius: 8px; }
+.sait-home .event-feature > div:first-child > [aria-hidden] { display: none; }
+.sait-home .event-details { background: var(--surface-2); border-left-style: dashed; position: relative; }
+.sait-home .event-date { font-family: var(--font-display); font-size: clamp(2rem, 3.2vw, 3.25rem); line-height: 1.15; letter-spacing: -.05em; max-width: 8ch; color: var(--foreground); }
+.sait-home .event-preview { height: 100%; border-radius: 3px; border-width: 0 0 1px; border-bottom-color: var(--connection); background: var(--surface); padding: 1.6rem; }
+.sait-home .event-preview h3 { font-size: 1.15rem; }
+.sait-home .event-preview .mt-5 > span:first-child { color: var(--foreground); font-weight: 600; }
+.sait-home .project-feature { border-radius: 8px; }
+.sait-home .project-feature > [aria-hidden] { display: none; }
+.sait-home .project-identity { position: relative; overflow: hidden; border: 0; background: var(--surface-2); border-radius: 2px; isolation: isolate; }
+.sait-home .project-identity::before, .sait-home .project-identity::after { content: ""; position: absolute; z-index: -1; width: 230px; height: 230px; border: 1px solid var(--connection); border-radius: 50%; transition: transform .6s var(--ease-out); }
+.sait-home .project-identity::before { transform: translate(-60px, -25px); }
+.sait-home .project-identity::after { transform: translate(65px, 25px); }
+.sait-home .project-feature:hover .project-identity::after { transform: translate(40px, 10px); }
+.sait-home .project-identity .text-6xl { font-size: 8rem; line-height: 1; }
+.sait-home .project-previews a { border-radius: 0; background: transparent; border-width: 1px 0 0; padding-left: 0; }
+.sait-home .project-previews h3 { font-family: var(--font-display); font-size: 1.75rem; margin-top: 2rem; }
+.sait-home .home-achievements { overflow: hidden; border-top: 4px solid var(--accent); }
+.sait-home .home-achievements .text-accent, .sait-home .project-feature .text-accent, .sait-home .final-panel .text-accent { color: var(--accent-fg); }
+.sait-home .achievement-row { padding-left: 1rem; padding-right: 1rem; position: relative; transition: background .3s; }
+.sait-home .achievement-row::before { content: ""; position: absolute; left: 0; top: 25%; height: 50%; width: 2px; background: var(--accent-fg); transform: scaleY(0); transition: transform .3s; }
+.sait-home .achievement-row:is(:hover, :focus-visible)::before { transform: scaleY(1); }
+.sait-home .achievement-row > span:first-child { font-size: 1.15rem; color: var(--accent-fg); }
+.sait-home .achievement-row > span:nth-child(2) { font-size: 2.5rem; letter-spacing: -.065em; }
+.sait-home .achievement-row h3 { font-family: var(--font-display); font-size: clamp(1.3rem, 2vw, 1.8rem); }
+.sait-home .home-final { background: var(--background); }
+.sait-home .final-panel { border-radius: 6px; padding-block: clamp(4rem, 8vw, 7rem); box-shadow: 12px 12px 0 var(--surface-2); }
+.sait-home .final-panel h2 { max-width: 13ch; font-size: clamp(2.8rem, 5.5vw, 5rem); line-height: 1.05; }
+.sait-home .final-connections { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.sait-home .final-connections span { position: absolute; width: 36%; height: 1px; background: var(--connection); left: -5%; top: 36%; transform: rotate(25deg); }
+.sait-home .final-connections span::after { content: ""; position: absolute; right: 0; top: -4px; width: 9px; height: 9px; border: 1px solid var(--accent-fg); border-radius: 50%; background: var(--surface-ink); }
+.sait-home .final-connections span:nth-child(2) { left: auto; right: -5%; top: 62%; transform: rotate(-25deg); }
+.sait-home .final-connections span:nth-child(3) { left: auto; right: -18%; top: 30%; transform: rotate(25deg); }
+.sait-home .final-panel a { gap: 2rem; min-height: 3.5rem; padding-inline: 1.5rem; background: var(--accent); color: var(--on-accent); }
+.sait-home a svg { transition: transform .25s var(--ease-out); }
+.sait-home a:is(:hover, :focus-visible) > svg:last-child { transform: translate(3px, -2px); }
+@keyframes home-scroll { 0%, 100% { transform: translateY(-14px); } 65% { transform: translateY(36px); } }
+@keyframes home-node { 0%, 100% { opacity: .4; translate: 0 0; } 50% { opacity: 1; translate: 0 -4px; } }
+@media (min-width: 768px) {
+  .sait-home .community-sequence { gap: 3rem; }
+  .sait-home .community-sequence::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--connection); }
+  .sait-home .community-step { border-top: 0; }
+  .sait-home .project-previews { grid-template-columns: 1.2fr 1fr; gap: 3rem; }
+  .sait-home .project-previews > :nth-child(2) { margin-top: 2.5rem; }
+}
+@media (max-width: 639px) {
+  .sait-home .home-hero > .grid { padding-top: 3rem; gap: 3rem; }
+  .sait-home .hero-network { max-width: 390px; }
+  .sait-home .network-node > span { min-width: 0; padding: .6rem; gap: .45rem; }
+  .sait-home .network-node > span > span:first-child { width: 25px; height: 28px; }
+  .sait-home .network-node .text-sm { font-size: 11px; }
+  .sait-home .network-node .text-\[10px\] { font-size: 8px; }
+  .sait-home .network-core { width: 116px; height: 116px; }
+  .sait-home .network-core > span:first-child { font-size: 8px; }
+  .sait-home .destination-network::before { left: 0; }
+  .sait-home .destination-node { margin-left: .5rem; }
+  .sait-home .achievement-row { grid-template-columns: 36px 1fr; gap: 1rem; }
+  .sait-home .achievement-row > div { grid-column: 1 / -1; }
+  .sait-home .final-connections { opacity: .45; }
+  .sait-home .final-panel { box-shadow: 6px 6px 0 var(--surface-2); }
+}
+@media (max-width: 380px) {
+  .sait-home .network-node[href="/achievements"] { left: 2%; }
+  .sait-home .network-node[href="/alumni"] { right: 2%; }
+  .sait-home .network-node[href="/projects"], .sait-home .network-node[href="/careers"] { top: 60%; }
+  .sait-home .network-core { width: 100px; height: 100px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sait-home *, .sait-home *::before, .sait-home *::after { animation: none !important; transition: none !important; }
+  .sait-home .home-reveal[data-pending] { opacity: 1; transform: none; }
+  .sait-home a:hover, .sait-home a:hover > span, .sait-home a:hover svg { transform: none; }
+}

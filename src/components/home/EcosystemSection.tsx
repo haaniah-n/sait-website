@@ -8,7 +8,7 @@ import {
   GraduationCap,
   Users,
 } from "lucide-react";
-import { MotionReveal } from "@/components/effects/motion-reveal";
+import { MotionReveal } from "./HomeReveal";
 
 const areas = [
   {
@@ -57,7 +57,7 @@ const areas = [
 
 export function EcosystemSection() {
   return (
-    <section className="border-b border-line bg-background">
+    <section className="home-ecosystem border-b border-line bg-background">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
           <MotionReveal>
@@ -80,7 +80,7 @@ export function EcosystemSection() {
             </div>
           </MotionReveal>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="destination-network grid gap-3 sm:grid-cols-2">
             {areas.map((area, index) => {
               const Icon = area.icon;
 
@@ -91,7 +91,7 @@ export function EcosystemSection() {
                 >
                   <Link
                     href={area.href}
-                    className="group block h-full rounded-[var(--radius-xl)] border border-line bg-surface p-6 transition-[transform,border-color,box-shadow,background-color] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:border-accent/30 hover:bg-white hover:shadow-[var(--shadow-lift)] sm:p-7"
+                    className="destination-node group block h-full rounded-[var(--radius-xl)] border border-line bg-surface p-6 transition-[transform,border-color,box-shadow,background-color] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:border-accent/30 hover:bg-surface-2 hover:shadow-[var(--shadow-lift)] sm:p-7"
                   >
                     <div className="flex items-start justify-between">
                       <span className="font-mono text-xs text-muted">

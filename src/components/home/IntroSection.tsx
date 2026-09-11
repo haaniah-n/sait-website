@@ -1,5 +1,5 @@
 import { ArrowUpRight, BookOpen, Hammer, Users } from "lucide-react";
-import { MotionReveal } from "@/components/effects/motion-reveal";
+import { MotionReveal } from "./HomeReveal";
 import { ButtonLink } from "@/components/ui/button";
 
 const highlights = [
@@ -35,7 +35,7 @@ const stats = [
 
 export function IntroSection() {
   return (
-    <section className="border-b border-line bg-surface">
+    <section className="home-community border-b border-line bg-surface">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <MotionReveal>
@@ -77,7 +77,7 @@ export function IntroSection() {
         </div>
 
         {/* Learn / Build / Connect */}
-        <div className="mt-20 grid gap-px overflow-hidden rounded-[var(--radius-xl)] border border-line bg-line md:grid-cols-3">
+        <div className="community-sequence mt-20 grid md:grid-cols-3">
           {highlights.map((item, index) => {
             const Icon = item.icon;
 
@@ -87,7 +87,7 @@ export function IntroSection() {
                 style={{ animationDelay: `${300 + index * 80}ms` }}
                 className="h-full"
               >
-                <article className="group h-full bg-surface p-7 transition-colors duration-[var(--duration-base)] hover:bg-background sm:p-8">
+                <article className="community-step group h-full bg-surface p-7 transition-colors duration-[var(--duration-base)] hover:bg-background sm:p-8">
                   <div className="flex items-start justify-between">
                     <span className="font-mono text-xs text-muted">
                       {item.number}
