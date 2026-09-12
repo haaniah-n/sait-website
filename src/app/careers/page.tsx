@@ -104,14 +104,14 @@ export default function CareersPage() {
         </Container>
       </section>
 
-      <section id="preparation" aria-labelledby="preparation-heading" className="scroll-mt-20 border-b border-white/10 bg-surface-ink text-nav-fg">
+      <section id="preparation" aria-labelledby="preparation-heading" className="scroll-mt-20 border-b border-line bg-surface-ink text-nav-fg">
         <Container className={`${layout} ${sectionSpace}`}>
           <MotionReveal>
             <p className={label}>02 / Career preparation</p>
             <h2 id="preparation-heading" className="text-section mt-5">Prepare a little. Put it into practice.</h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-nav-muted">Use this as a repeatable pathway. Pick the step that fits where you are, then return to it as your experience grows.</p>
             <ol className="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
-              {preparation.map((step, index) => <li key={step.title} className="border-t border-white/15 pt-5"><span className="font-mono text-xs text-accent">0{index + 1}</span><h3 className="mt-3 text-lg font-semibold">{step.title}</h3><p className="mt-3 text-sm leading-7 text-nav-muted">{step.text}</p></li>)}
+              {preparation.map((step, index) => <li key={step.title} className="border-t border-line-strong pt-5"><span className="font-mono text-xs text-accent">0{index + 1}</span><h3 className="mt-3 text-lg font-semibold">{step.title}</h3><p className="mt-3 text-sm leading-7 text-nav-muted">{step.text}</p></li>)}
             </ol>
           </MotionReveal>
         </Container>

@@ -7,7 +7,7 @@ export function FinalCTA() {
     <section className="home-final border-b border-line bg-background">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <MotionReveal>
-          <div data-choreography="converge" className="final-panel relative overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink px-6 py-14 text-center shadow-[var(--shadow-md)] sm:px-10 sm:py-20">
+          <div data-choreography="converge" className="final-panel relative overflow-hidden border border-line px-6 text-center sm:px-10">
             <div className="final-connections" aria-hidden="true"><span /><span /><span /></div>
             <div className="relative">
               <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
@@ -30,7 +30,7 @@ export function FinalCTA() {
               <Link
                 href="/explore"
                 data-pointer="magnetic"
-                className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-[var(--radius-md)] bg-accent px-5 text-sm font-medium text-on-accent transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-accent-hover"
+                className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-[var(--radius-md)] bg-signal px-5 text-sm font-medium text-on-accent transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-signal-hover"
               >
                 Explore SAIT
                 <ArrowRight size={17} aria-hidden="true" />

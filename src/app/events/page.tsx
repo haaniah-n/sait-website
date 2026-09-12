@@ -77,7 +77,7 @@ export default function EventsPage() {
                   <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.12em] text-nav-muted"><span>{eventCategoryLabels[nextEvent.kind]}</span><span aria-hidden="true">/</span><span>Nearest upcoming event</span></div>
                   <h2 id="next-heading" className="mt-7 font-display text-3xl font-bold tracking-[-0.04em] sm:text-4xl lg:text-5xl">{nextEvent.title}</h2>
                   <p className="mt-5 max-w-xl text-base leading-8 text-nav-muted">{nextEvent.summary}</p>
-                  <p className="mt-7 border-t border-white/10 pt-5 font-mono text-sm leading-7 text-nav-fg">{eventDates(nextEvent)}</p>
+                  <p className="mt-7 border-t border-line pt-5 font-mono text-sm leading-7 text-nav-fg">{eventDates(nextEvent)}</p>
                 </div>
                 <div className="bg-background p-6 sm:p-9 lg:p-10">
                   <dl className="space-y-5">

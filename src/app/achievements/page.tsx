@@ -68,7 +68,7 @@ export default function AchievementsPage() {
               const primary = index === 0;
               return (
                 <MotionReveal key={achievement.id} delay={index * 0.05} className={primary ? "h-full lg:row-span-2" : "h-full"}>
-                  <article aria-labelledby={`spotlight-${achievement.id}`} className={`flex h-full flex-col rounded-[var(--radius-xl)] border p-6 sm:p-8 ${primary ? "border-white/10 bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] lg:p-10" : "border-line bg-background text-foreground"}`}>
+                  <article aria-labelledby={`spotlight-${achievement.id}`} className={`flex h-full flex-col rounded-[var(--radius-xl)] border p-6 sm:p-8 ${primary ? "border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] lg:p-10" : "border-line bg-background text-foreground"}`}>
                     <div className={`flex flex-wrap items-center justify-between gap-3 font-mono text-xs ${primary ? "text-nav-muted" : "text-muted"}`}>
                       <span className="uppercase tracking-[0.12em]">{achievement.categoryLabel}</span>
                       <time dateTime={achievement.date}>{dateFormat.format(new Date(achievement.date))}</time>
@@ -76,11 +76,11 @@ export default function AchievementsPage() {
                     <h3 id={`spotlight-${achievement.id}`} className={`mt-7 font-display font-bold leading-tight tracking-[-0.035em] ${primary ? "max-w-md text-3xl sm:text-4xl lg:mt-12 lg:text-5xl" : "text-2xl sm:text-3xl"}`}>{achievement.title}</h3>
                     <p className={`mt-4 max-w-xl text-sm leading-7 ${primary ? "text-nav-muted" : "text-muted"}`}>{achievement.description}</p>
                     <dl className={`mt-auto grid gap-5 pt-7 ${primary ? "sm:pt-12" : "sm:grid-cols-2"}`}>
-                      <div className={`border-t pt-5 ${primary ? "border-white/10" : "border-line"}`}>
+                      <div className={`border-t pt-5 ${primary ? "border-line" : "border-line"}`}>
                         <dt className={`font-mono text-[10px] uppercase tracking-[0.14em] ${primary ? "text-nav-muted" : "text-muted"}`}>The outcome</dt>
                         <dd className={`mt-2 font-display font-bold tracking-[-0.04em] ${primary ? "text-4xl text-nav-fg sm:text-5xl" : "text-2xl text-accent-hover"}`}>{achievement.result}</dd>
                       </div>
-                      <div className={`border-t pt-5 ${primary ? "border-white/10" : "border-line"}`}>
+                      <div className={`border-t pt-5 ${primary ? "border-line" : "border-line"}`}>
                         <dt className={`font-mono text-[10px] uppercase tracking-[0.14em] ${primary ? "text-nav-muted" : "text-muted"}`}>The people behind it</dt>
                         <dd className="mt-2 text-sm font-medium leading-6">{achievement.contributor}</dd>
                       </div>
@@ -134,7 +134,7 @@ export default function AchievementsPage() {
         </Container>
       </section>
 
-      <section id="culture" aria-labelledby="culture-heading" className="scroll-mt-20 border-b border-white/10 bg-surface-ink text-nav-fg">
+      <section id="culture" aria-labelledby="culture-heading" className="scroll-mt-20 border-b border-line bg-surface-ink text-nav-fg">
         <Container className={`${layout} ${sectionSpace}`}>
           <MotionReveal>
             <p className={label}>03 / What we celebrate</p>
@@ -146,7 +146,7 @@ export default function AchievementsPage() {
               {culture.map((area) => {
                 const Icon = area.icon;
                 return (
-                  <li key={area.title} className="border-t border-white/15 pt-5">
+                  <li key={area.title} className="border-t border-line-strong pt-5">
                     <h3 className="flex items-center gap-3 font-display text-lg font-semibold"><Icon size={18} aria-hidden="true" className="shrink-0 text-accent" />{area.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-nav-muted">{area.description}</p>
                   </li>

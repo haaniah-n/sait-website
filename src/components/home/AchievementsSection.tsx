@@ -18,7 +18,7 @@ export function AchievementsSection() {
           <MotionReveal>
             <div>
               <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
-                Achievements / Hall of Fame
+                05 / Achievements / Hall of Fame
               </p>
 
               <div className="mt-5 h-px w-16 bg-accent" />
@@ -41,7 +41,7 @@ export function AchievementsSection() {
         </div>
 
         {/* Achievement list */}
-        <div className="mt-14 border-t border-white/10">
+        <div className="mt-14 border-t border-line">
           {achievements.map((achievement, index) => (
             <MotionReveal
               key={achievement.number}
@@ -49,7 +49,7 @@ export function AchievementsSection() {
             >
               <Link
                 href="/achievements"
-                className="achievement-row group grid gap-6 border-b border-white/10 py-8 transition-colors duration-[var(--duration-base)] hover:bg-white/[0.025] sm:grid-cols-[72px_110px_1fr_auto] sm:items-center sm:gap-8 sm:py-9"
+                className="achievement-row group grid gap-6 border-b border-line py-8 transition-colors duration-[var(--duration-base)] hover:bg-surface-2 sm:grid-cols-[72px_110px_1fr_auto] sm:items-center sm:gap-8 sm:py-9"
               >
                 {/* Number */}
                 <span className="font-mono text-xs text-nav-muted">
@@ -64,12 +64,12 @@ export function AchievementsSection() {
                 {/* Main content */}
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-nav-muted">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface-2 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-nav-muted">
                       <Award size={12} aria-hidden="true" />
                       {achievement.category}
                     </span>
 
-                    <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-accent">
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-accent">
                       {achievement.result}
                     </span>
                   </div>
@@ -84,7 +84,7 @@ export function AchievementsSection() {
                 </div>
 
                 {/* Arrow */}
-                <span className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/10 text-nav-muted transition-[transform,border-color,color] duration-[var(--duration-base)] group-hover:-translate-y-1 group-hover:border-accent/40 group-hover:text-accent sm:flex">
+                <span className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-nav-muted transition-[transform,border-color,color] duration-[var(--duration-base)] group-hover:-translate-y-1 group-hover:border-accent/40 group-hover:text-accent sm:flex">
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </span>
               </Link>

@@ -81,7 +81,7 @@ export default function ContactPage() {
         <Container className={`${layout} py-12 sm:py-16`}>
           <div className="grid gap-8 rounded-[var(--radius-xl)] border border-line bg-surface-ink p-6 text-nav-fg sm:p-9 lg:grid-cols-2 lg:gap-14">
             <div><p className={label}>03 / Location</p><h2 id="visit-heading" className="text-section mt-4">Part of the IT community at CUSAT.</h2><p className="mt-4 max-w-xl text-sm leading-7 text-nav-muted">Planning a visit or joining an event? Check the event&apos;s venue details and use the contact email for any location questions.</p></div>
-            <div className="border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <div className="border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
               <Building2 size={24} aria-hidden="true" className="text-accent" />
               <address className="mt-4 space-y-2 text-sm not-italic leading-7"><p className="font-semibold">{site.division}</p><p>{site.school}</p><p className="text-nav-muted">{site.university}</p><p className="text-nav-muted">{site.location}</p></address>
               <p className="mt-4 text-xs leading-6 text-nav-muted">Campus location from site configuration. No map or specific meeting point is provided.</p>

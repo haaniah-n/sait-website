@@ -12,7 +12,7 @@ export function MotionReveal({ children, className, rise = true, delay, style, .
   useEffect(() => {
     const element = ref.current;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!element || preference.matches || !("IntersectionObserver" in window)) return;
+    if (!element?.querySelector("h2") || preference.matches || !("IntersectionObserver" in window)) return;
     if (element.getBoundingClientRect().top < window.innerHeight) return;
     element.dataset.pending = "true";
     const show = () => { delete element.dataset.pending; observer.disconnect(); };

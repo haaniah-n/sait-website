@@ -95,10 +95,6 @@ export default function ExplorePage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-background">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-[-8rem] top-[-10rem] h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl"
-        />
 
         <Container className="relative py-20 sm:py-24 lg:py-32">
           <MotionReveal>
@@ -248,7 +244,7 @@ export default function ExplorePage() {
       </section>
 
       {/* Achievements */}
-      <section className="border-b border-white/10 bg-surface-ink text-nav-fg">
+      <section className="border-b border-line bg-surface-ink text-nav-fg">
         <Container className="py-20 sm:py-24 lg:py-28">
           <MotionReveal>
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
@@ -262,7 +258,7 @@ export default function ExplorePage() {
 
               <Link
                 href={siteRoutes.achievements}
-                className="inline-flex items-center gap-2 text-sm font-medium text-nav-fg hover:text-white"
+                className="inline-flex items-center gap-2 text-sm font-medium text-nav-fg hover:text-accent"
               >
                 Explore achievements
                 <ArrowRight size={16} aria-hidden="true" />
@@ -270,10 +266,10 @@ export default function ExplorePage() {
             </div>
           </MotionReveal>
 
-          <div className="mt-12 grid gap-0 border-t border-white/10 md:grid-cols-3 md:divide-x md:divide-white/10">
+          <div className="mt-12 grid gap-0 border-t border-line md:grid-cols-3 md:divide-x md:divide-line">
             {achievements.map((achievement, index) => (
               <MotionReveal key={achievement.value} delay={index * 0.06}>
-                <div className="border-b border-white/10 py-7 md:border-b-0 md:px-7 md:first:pl-0 md:last:pr-0">
+                <div className="border-b border-line py-7 md:border-b-0 md:px-7 md:first:pl-0 md:last:pr-0">
                   <span className="font-mono text-xs text-accent">
                     {achievement.value}
                   </span>
@@ -363,10 +359,6 @@ export default function ExplorePage() {
         <Container className="py-20 sm:py-24 lg:py-28">
           <MotionReveal>
             <div className="relative overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink px-6 py-14 text-center shadow-[var(--shadow-md)] sm:px-10 sm:py-20">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
-              />
 
               <div className="relative">
                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
@@ -388,7 +380,7 @@ export default function ExplorePage() {
 
                 <Link
                   href={siteRoutes.contact}
-                  className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-[var(--radius-md)] bg-accent px-5 text-sm font-medium text-on-accent transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-accent-hover"
+                  className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-[var(--radius-md)] bg-signal px-5 text-sm font-medium text-on-accent transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-signal-hover"
                 >
                   Get involved
                   <ArrowRight size={17} aria-hidden="true" />

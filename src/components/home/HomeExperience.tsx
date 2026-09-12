@@ -4,7 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { usePointerEffects } from "@/components/effects/use-pointer-effects";
 
 export function HomeExperience({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   usePointerEffects(ref);
 
   useEffect(() => {
@@ -58,5 +58,5 @@ export function HomeExperience({ children }: { children: ReactNode }) {
     return () => { dispose(); preference.removeEventListener("change", configure); };
   }, []);
 
-  return <main ref={ref} className="sait-home">{children}</main>;
+  return <div ref={ref} className="sait-home">{children}</div>;
 }

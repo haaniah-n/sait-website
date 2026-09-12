@@ -41,7 +41,6 @@ export default function PeoplePage() {
   return (
     <>
       <section aria-labelledby="community-heading" className="relative overflow-hidden border-b border-line bg-background">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
         <Container className={`${layout} relative pb-8 pt-14 sm:pt-16 lg:pt-20`}>
           <MotionReveal>
             <p className={label}>Community</p>
@@ -91,21 +90,21 @@ export default function PeoplePage() {
         </Container>
       </section>
 
-      <section id="committee" aria-labelledby="committee-heading" className="scroll-mt-20 border-b border-white/10 bg-surface-ink text-nav-fg">
+      <section id="committee" aria-labelledby="committee-heading" className="scroll-mt-20 border-b border-line bg-surface-ink text-nav-fg">
         <Container className={`${layout} ${sectionSpace}`}>
           <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
             <MotionReveal>
               <p className={label}>02 / Student leadership</p>
               <h2 id="committee-heading" className="text-section mt-5">SAIT Executive Committee</h2>
               <p className="mt-5 max-w-md text-base leading-7 text-nav-muted">Students taking the initiative, listening to the community, and helping good ideas become shared experiences.</p>
-              <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-5 text-sm text-nav-muted"><Users size={18} aria-hidden="true" className="shrink-0 text-accent" /><span>Led by students. Built together.</span></div>
+              <div className="mt-8 flex items-center gap-3 border-t border-line pt-5 text-sm text-nav-muted"><Users size={18} aria-hidden="true" className="shrink-0 text-accent" /><span>Led by students. Built together.</span></div>
             </MotionReveal>
-            <ol className="divide-y divide-white/10 border-y border-white/10">
+            <ol className="divide-y divide-line border-y border-line">
               {committee.map((person, index) => (
                 <li key={person.name}>
                   <MotionReveal delay={index * 0.04}>
                     <article className="flex items-start gap-4 py-6 sm:gap-5 sm:py-7">
-                      <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-md)] border border-white/10 bg-white/5 font-display text-sm font-semibold text-nav-fg">{person.initials}</span>
+                      <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-md)] border border-line bg-surface-2 font-display text-sm font-semibold text-nav-fg">{person.initials}</span>
                       <div className="min-w-0 flex-1">
                         <p className="font-mono text-xs uppercase tracking-[0.12em] text-accent">{person.role}</p>
                         <h3 className="mt-2 text-lg font-semibold text-nav-fg sm:text-xl">{person.name}</h3>

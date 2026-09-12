@@ -1,123 +1,23 @@
-/* Connected ecosystem: motion adds emphasis, never a new layout or palette. */
-.sait-home .network-lines path { transition: stroke 220ms, opacity 220ms; }
-.sait-home .network-node:focus-visible > span { border-color: var(--accent-fg); }
-.sait-home .hero-network:has([href="/people"]:focus-visible) [data-connection="people"],
-.sait-home .hero-network:has([href="/events"]:focus-visible) [data-connection="events"],
-.sait-home .hero-network:has([href="/projects"]:focus-visible) [data-connection="projects"],
-.sait-home .hero-network:has([href="/careers"]:focus-visible) [data-connection="careers"],
-.sait-home .hero-network:has([href="/achievements"]:focus-visible) [data-connection="achievements"],
-.sait-home .hero-network:has([href="/alumni"]:focus-visible) [data-connection="alumni"] {
-  stroke: var(--accent); opacity: 1; animation: none;
-}
-
-.sait-home .destination-node { isolation: isolate; transition: border-color 250ms, background-color 250ms, transform 350ms var(--ease-out); }
-.sait-home .destination-node > div { position: relative; z-index: 1; }
-.sait-home .destination-node:focus-visible { border-color: var(--accent); background: var(--surface-2); }
-.sait-home .destination-node::after, .sait-home .destination-network::after, .sait-home .event-feature::after {
-  content: ""; position: absolute; pointer-events: none; opacity: 0;
-  transition: opacity 250ms; border-radius: inherit;
-}
-.sait-home .destination-node::after { inset: 1px; z-index: 0; }
-.sait-home .destination-network::after { inset: 0; z-index: -1; }
-.sait-home .destination-network { isolation: isolate; }
-.sait-home .event-feature { position: relative; isolation: isolate; }
-.sait-home .event-feature::after { inset: 0; z-index: 1; }
-
-/* Modest rhythm correction, preserving the editorial asymmetry. */
-.sait-home .home-projects > div { padding-bottom: clamp(3.5rem, 5vw, 4.5rem); }
-.sait-home .home-projects > div > .home-reveal:last-child > div { margin-top: 1.5rem; }
-.sait-home .final-panel { padding-block: clamp(3.5rem, 5vw, 4.75rem); }
-.sait-home .final-connections span { transform-origin: left center; }
-.sait-home .final-connections span:nth-child(n+2) { transform-origin: right center; }
-.sait-home .final-connections span:nth-child(n+2)::after { left: 0; right: auto; }
-
-@media (hover: hover) and (pointer: fine) {
-  .sait-home .network-node:hover > span { transform: translateY(-3px); border-color: var(--accent-fg); }
-  .sait-home .network-node:is(:hover, :focus-visible) svg { color: var(--accent-fg); }
-  .sait-home .hero-network:has([href="/people"]:hover) [data-connection="people"],
-  .sait-home .hero-network:has([href="/events"]:hover) [data-connection="events"],
-  .sait-home .hero-network:has([href="/projects"]:hover) [data-connection="projects"],
-  .sait-home .hero-network:has([href="/careers"]:hover) [data-connection="careers"],
-  .sait-home .hero-network:has([href="/achievements"]:hover) [data-connection="achievements"],
-  .sait-home .hero-network:has([href="/alumni"]:hover) [data-connection="alumni"] {
-    stroke: var(--accent); opacity: 1; animation: none;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .sait-home .destination-network[data-pointer-active]::after {
-    opacity: 1;
-    background: radial-gradient(240px circle at var(--pointer-x) var(--pointer-y), color-mix(in srgb, var(--accent) 4%, transparent), transparent 85%);
-  }
-  .sait-home .destination-network[data-pointer-active] .destination-node::after {
-    opacity: 1;
-    background: radial-gradient(210px circle at var(--pointer-x) var(--pointer-y), color-mix(in srgb, var(--accent) 7%, transparent), transparent 85%);
-  }
-  .sait-home .destination-node:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); transform: translateY(-2px); }
-  .sait-home .event-feature[data-pointer-active]::after {
-    opacity: 1;
-    background: radial-gradient(220px circle at var(--pointer-x) var(--pointer-y), color-mix(in srgb, var(--accent) 4%, transparent), transparent 85%);
-  }
-}
-
+/* Orbital activation is shared by pointer and keyboard. Labels remain stationary. */
+.hero-network:has(.network-node-people:is(:hover, :focus-visible)) [data-connection="people"] { stroke: var(--accent); fill: var(--accent); }
+.hero-network:has(.network-node-events:is(:hover, :focus-visible)) [data-connection="events"] { stroke: var(--accent); fill: var(--accent); }
+.hero-network:has(.network-node-projects:is(:hover, :focus-visible)) [data-connection="projects"] { stroke: var(--accent); fill: var(--accent); }
+.hero-network:has(.network-node-careers:is(:hover, :focus-visible)) [data-connection="careers"] { stroke: var(--accent); fill: var(--accent); }
+.hero-network:has(.network-node-achievements:is(:hover, :focus-visible)) [data-connection="achievements"] { stroke: var(--accent); fill: var(--accent); }
+.hero-network:has(.network-node-alumni:is(:hover, :focus-visible)) [data-connection="alumni"] { stroke: var(--accent); fill: var(--accent); }
 @media (prefers-reduced-motion: no-preference) {
-  .sait-home .hero-network > span { animation-duration: 14s; animation-play-state: paused; }
-  .sait-home .hero-network[data-in-view="true"] > span { animation-play-state: running; }
-  .sait-home .network-lines path { animation: sait-connection-breathe 18s ease-in-out infinite paused; }
-  .sait-home .hero-network[data-in-view="true"] .network-lines path { animation-play-state: running; }
-  .sait-home .network-lines path:nth-child(2) { animation-delay: -15s; }
-  .sait-home .network-lines path:nth-child(3) { animation-delay: -12s; }
-  .sait-home .network-lines path:nth-child(4) { animation-delay: -9s; }
-  .sait-home .network-lines path:nth-child(5) { animation-delay: -6s; }
-  .sait-home .network-lines path:nth-child(6) { animation-delay: -3s; }
-
-  .sait-home .community-sequence-item { --sequence-delay: 0ms; }
-  .sait-home .community-sequence-item:nth-child(2) { --sequence-delay: 280ms; }
-  .sait-home .community-sequence-item:nth-child(3) { --sequence-delay: 560ms; }
-  .sait-home .community-sequence[data-choreography-ready]:not([data-entered]) .community-step::before { opacity: .4; }
-  .sait-home .community-sequence[data-entered] .community-step::before { animation: sait-node-activate 600ms var(--ease-out) var(--sequence-delay) both; }
-  .sait-home .community-sequence[data-entered] .community-step > * { animation: sait-sequence-reveal 650ms var(--ease-out) var(--sequence-delay) both; }
-
-  .sait-home .project-identity::before { animation: sait-orbit-first 20s ease-in-out infinite paused; }
-  .sait-home .project-identity::after { animation: sait-orbit-second 17s ease-in-out infinite paused; }
-  .sait-home .project-identity[data-in-view="true"]::before,
-  .sait-home .project-identity[data-in-view="true"]::after { animation-play-state: running; }
-
-  .sait-home .achievement-row[data-scroll-row] > span:first-child { color: var(--muted); transition: color 250ms; }
-  .sait-home .achievement-row[data-scroll-row] h3 { color: color-mix(in srgb, var(--foreground) 80%, var(--muted)); transition: color 350ms; }
-  .sait-home .achievement-row:is([data-active="true"], :focus-visible) > span:first-child { color: var(--accent-fg); }
-  .sait-home .achievement-row:is([data-active="true"], :focus-visible) h3 { color: var(--foreground); }
-  .sait-home .achievement-row[data-active="true"]::before { transform: scaleY(1); transform-origin: top; transition-duration: 600ms; }
-  .sait-home .achievement-row[data-active="true"] > span:last-child { color: var(--accent-fg); border-color: var(--connection); }
-
-  .sait-home .final-panel[data-choreography-ready]:not([data-entered]) .final-connections span { opacity: .2; scale: .84 1; }
-  .sait-home .final-panel[data-entered] .final-connections span { animation: sait-converge 800ms var(--ease-out) both; }
-  .sait-home .final-panel[data-entered] .final-connections span:nth-child(2) { animation-delay: 120ms; }
-  .sait-home .final-panel[data-entered] .final-connections span:nth-child(3) { animation-delay: 220ms; }
-  .sait-home[data-page-hidden="true"] *, .sait-home[data-page-hidden="true"] *::before, .sait-home[data-page-hidden="true"] *::after { animation-play-state: paused !important; }
+  .hero-network[data-in-view="true"] .orbit-signal { animation: orbit-signal 22s ease-in-out infinite; }
+  .community-sequence[data-entered] .community-step::before { animation: node-arrive .6s ease both; }
+  .community-sequence[data-entered] .community-sequence-item:nth-child(2) .community-step::before { animation-delay: .2s; }
+  .community-sequence[data-entered] .community-sequence-item:nth-child(3) .community-step::before { animation-delay: .4s; }
+  .final-panel[data-entered] .final-connections { animation: line-arrive 1s ease both; }
+  .sait-home[data-page-hidden="true"] *, .sait-home[data-page-hidden="true"] *::before { animation-play-state: paused !important; }
 }
-
-@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
-  .sait-home .community-sequence[data-choreography-ready] .community-step::after {
-    content: ""; position: absolute; top: 0; left: 0; height: 1px; width: calc(100% + 3rem);
-    background: var(--accent); opacity: .45; transform: scaleX(0); transform-origin: left;
-  }
-  .sait-home .community-sequence[data-entered] .community-step::after { animation: sait-line-connect 550ms var(--ease-out) calc(var(--sequence-delay) + 120ms) both; }
-  .sait-home .community-sequence .community-sequence-item:last-child .community-step::after { width: 100%; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .destination-node { position: relative; }
+  .destination-node::after { content: ""; position: absolute; top: -1px; left: clamp(0px, var(--pointer-x, 0px), calc(100% - 20px)); width: 20px; height: 1px; background: var(--accent); opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .destination-network[data-pointer-active] .destination-node::after { opacity: .7; }
 }
-
-@media (hover: none), (pointer: coarse) {
-  .sait-home .network-node:hover > span, .sait-home a:hover, .sait-home a:hover svg { transform: none; translate: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .sait-home .network-node:hover > span { transform: none; }
-  .sait-home [data-pointer]::after, .sait-home .destination-node::after { display: none; }
-  .sait-home .home-reveal { transition-delay: 0s !important; }
-}
-@keyframes sait-connection-breathe { 0%, 20%, 100% { opacity: .68; } 8% { opacity: 1; } }
-@keyframes sait-node-activate { from { opacity: .4; scale: .85; } to { opacity: 1; scale: 1; } }
-@keyframes sait-sequence-reveal { from { opacity: .55; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@keyframes sait-line-connect { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes sait-orbit-first { 0%, 100% { transform: translate(-60px, -25px); } 50% { transform: translate(-52px, -29px); } }
-@keyframes sait-orbit-second { 0%, 100% { transform: translate(65px, 25px); } 50% { transform: translate(58px, 30px); } }
-@keyframes sait-converge { from { opacity: .2; scale: .84 1; } to { opacity: 1; scale: 1 1; } }
+@keyframes orbit-signal { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
+@keyframes node-arrive { from { opacity: .3; } to { opacity: 1; } }
+@keyframes line-arrive { from { opacity: .1; } to { opacity: .6; } }

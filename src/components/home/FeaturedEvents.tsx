@@ -30,7 +30,7 @@ export function FeaturedEvents() {
           <MotionReveal>
             <div>
               <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
-                Events / What&apos;s happening
+                03 / Events / What&apos;s happening
               </p>
 
               <div className="mt-5 h-px w-16 bg-accent" />
@@ -57,17 +57,13 @@ export function FeaturedEvents() {
         <MotionReveal style={{ animationDelay: "180ms" }}>
           <Link
             href={`${siteRoutes.events}#next-up`}
-            data-pointer="spotlight"
-            className="event-feature group mt-14 grid overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] lg:grid-cols-[1.25fr_0.75fr]"
+
+            className="event-feature group mt-14 grid overflow-hidden border bg-surface-ink text-nav-fg transition-colors lg:grid-cols-[1.25fr_0.75fr]"
           >
             <div className="relative overflow-hidden p-7 sm:p-10 lg:p-12">
-              <div
-                aria-hidden="true"
-                className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl transition-transform duration-700 group-hover:scale-125"
-              />
 
               <div className="relative">
-                <span className="inline-flex rounded-full border border-white/10 bg-white/6 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-nav-muted">
+                <span className="inline-flex rounded-full border border-line bg-surface-2 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
                   {featuredEvent.category}
                 </span>
 
@@ -90,10 +86,10 @@ export function FeaturedEvents() {
               </div>
             </div>
 
-            <div className="event-details border-t border-white/10 bg-white/4 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
+            <div className="event-details border-t border-line bg-surface-2 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
               <div className="grid gap-7">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-nav-muted">
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
                     Date
                   </p>
                   <p className="event-date mt-2 text-lg font-semibold">
@@ -102,7 +98,7 @@ export function FeaturedEvents() {
                 </div>
 
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-nav-muted">
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
                     Time
                   </p>
                   <p className="mt-2 text-lg font-semibold">
@@ -111,7 +107,7 @@ export function FeaturedEvents() {
                 </div>
 
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-nav-muted">
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
                     Venue
                   </p>
                   <p className="mt-2 flex items-center gap-2 text-lg font-semibold">
@@ -133,10 +129,10 @@ export function FeaturedEvents() {
             >
               <Link
                 href={`${siteRoutes.events}#event-${event.id}`}
-                className="event-preview group block rounded-[var(--radius-lg)] border border-line bg-background p-5 transition-[transform,border-color,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:border-accent/30 hover:shadow-[var(--shadow-sm)]"
+                className="event-preview group block border transition-colors"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
+                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
                     {event.category}
                   </span>
 

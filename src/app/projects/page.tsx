@@ -29,7 +29,6 @@ export default function ProjectsPage() {
   return (
     <>
       <section aria-labelledby="projects-heading" className="relative overflow-hidden border-b border-line bg-background">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-40 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
         <Container className={`${layout} relative pb-8 pt-14 sm:pt-16 lg:pt-20`}>
           <MotionReveal>
             <p className={label}>Projects</p>
@@ -60,8 +59,8 @@ export default function ProjectsPage() {
               const primary = index === 0;
               return (
                 <MotionReveal key={project.id} delay={index * 0.05} className={primary ? "md:col-span-2" : "h-full"}>
-                  <article aria-labelledby={`project-${project.id}`} className={`relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] border p-6 sm:p-8 ${primary ? "border-white/10 bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] lg:p-12" : "border-line bg-background text-foreground"}`}>
-                    {primary && <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />}
+                  <article aria-labelledby={`project-${project.id}`} className={`relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] border p-6 sm:p-8 ${primary ? "border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] lg:p-12" : "border-line bg-background text-foreground"}`}>
+
                     <div className="relative flex flex-wrap items-center justify-between gap-3">
                       <p className={`font-mono text-xs uppercase tracking-[0.12em] ${primary ? "text-nav-muted" : "text-muted"}`}>0{index + 1} / {project.category}</p>
                       <span className={primary ? "inline-flex rounded-full bg-surface" : "inline-flex"}><StatusBadge status={project.status} /></span>
@@ -73,9 +72,9 @@ export default function ProjectsPage() {
                         <p className={`mt-4 max-w-xl text-sm leading-7 ${primary ? "text-nav-muted" : "text-muted"}`}>{project.summary}</p>
                       </div>
                       {primary && (
-                        <div className="rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-6 sm:p-7">
+                        <div className="rounded-[var(--radius-lg)] border border-line bg-surface-2 p-6 sm:p-7">
                           <p className="font-mono text-xs uppercase tracking-[0.14em] text-nav-muted">Inside the concept</p>
-                          <ol className="mt-5 divide-y divide-white/10">
+                          <ol className="mt-5 divide-y divide-line">
                             {project.highlights.map((highlight, step) => (
                               <li key={highlight} className="flex items-start gap-4 py-4">
                                 <span className="pt-0.5 font-mono text-xs text-accent">0{step + 1}</span>
@@ -86,10 +85,10 @@ export default function ProjectsPage() {
                         </div>
                       )}
                     </div>
-                    <div className={`relative mt-8 flex flex-wrap items-center gap-x-4 gap-y-3 border-t pt-5 ${primary ? "border-white/10" : "border-line"}`}>
+                    <div className={`relative mt-8 flex flex-wrap items-center gap-x-4 gap-y-3 border-t pt-5 ${primary ? "border-line" : "border-line"}`}>
                       <p className={`font-mono text-[10px] uppercase tracking-[0.14em] ${primary ? "text-nav-muted" : "text-muted"}`}>{project.status === "idea" ? "Proposed stack" : "Project stack"}</p>
                       <ul aria-label={`${project.title} technologies`} className="flex flex-wrap gap-2">
-                        {project.technologies.map((technology) => <li key={technology}><span className={`inline-flex rounded-full border px-3 py-1 font-mono text-xs ${primary ? "border-white/15 bg-white/5 text-nav-fg" : "border-line bg-surface text-muted"}`}>{technology}</span></li>)}
+                        {project.technologies.map((technology) => <li key={technology}><span className={`inline-flex rounded-full border px-3 py-1 font-mono text-xs ${primary ? "border-line-strong bg-surface-2 text-nav-fg" : "border-line bg-surface text-muted"}`}>{technology}</span></li>)}
                       </ul>
                     </div>
                   </article>

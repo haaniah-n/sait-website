@@ -3,23 +3,25 @@
 :root {
   /* Canvas */
   color-scheme: dark;
-  --background: #07111f;
-  --foreground: #f4f7fa;
-  --muted: #9aa8ba;
-  --surface: #0d1828;
-  --surface-2: #132033;
-  --surface-ink: #0a1524;
-  --line: rgba(224, 236, 250, 0.09);
-  --line-strong: rgba(224, 236, 250, 0.22);
-  --control-line: #61748a;
+  --background: #08100f;
+  --foreground: #f2f1ea;
+  --muted: #a6aaa0;
+  --surface: #101918;
+  --surface-2: #182320;
+  --surface-ink: #0c1513;
+  --line: rgba(242, 241, 234, 0.13);
+  --line-strong: rgba(242, 241, 234, 0.27);
+  --control-line: #718176;
 
-  /* Brand — one primary accent (teal), ink as structure */
-  --accent: #19c6b3;
-  --accent-hover: #7ce7dc;
-  --accent-soft: rgba(25, 198, 179, 0.1);
-  --accent-fg: #7ce7dc;
-  --on-accent: #071b20;
-  --connection: rgba(124, 231, 220, 0.25);
+  /* Signal is a fill; accent is accessible interactive ink in each mode. */
+  --signal: #b7f56a;
+  --signal-hover: #cbfa95;
+  --accent: #b7f56a;
+  --accent-hover: #c7f898;
+  --accent-soft: rgba(183, 245, 106, 0.08);
+  --accent-fg: #c7f898;
+  --on-accent: #17240f;
+  --connection: rgba(183, 245, 106, 0.27);
 
   --nav: var(--surface);
   --nav-fg: var(--foreground);
@@ -38,9 +40,9 @@
 
   /* Radius */
   --radius-sm: 0.375rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 0.875rem;
-  --radius-xl: 1.25rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
 
   /* Space */
   --space-1: 0.25rem;
@@ -81,7 +83,37 @@
   --glow-accent: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #f4f1e8;
+  --foreground: #17231e;
+  --muted: #5e685e;
+  --surface: #f7f5ee;
+  --surface-2: #e9e9dd;
+  --surface-ink: #e5e8db;
+  --line: rgba(23, 35, 30, .16);
+  --line-strong: rgba(23, 35, 30, .3);
+  --control-line: #798173;
+  --accent: #42651e;
+  --accent-hover: #304e13;
+  --accent-fg: #42651e;
+  --accent-soft: rgba(97, 140, 41, .1);
+  --connection: rgba(66, 101, 30, .3);
+  --success: #28633e;
+  --success-soft: rgba(40, 99, 62, .08);
+  --warning: #805414;
+  --warning-soft: rgba(128, 84, 20, .08);
+  --danger: #a12c38;
+  --danger-soft: rgba(161, 44, 56, .08);
+  --shadow-sm: 0 2px 5px rgba(23, 35, 30, .04);
+  --shadow-md: 0 8px 24px rgba(23, 35, 30, .05);
+  --shadow-lift: 0 12px 28px rgba(23, 35, 30, .08);
+}
+
 @theme inline {
+  --color-signal: var(--signal);
+  --color-signal-hover: var(--signal-hover);
+  --font-editorial: var(--font-instrument-serif), Georgia, serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
@@ -107,9 +139,9 @@
   --color-ring: var(--ring);
   --color-overlay: var(--overlay);
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-syne), var(--font-geist-sans), ui-sans-serif, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-instrument-sans), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 }
 
 * {
@@ -121,12 +153,18 @@ html {
 }
 
 body {
+  /* CSS artwork and Tailwind utilities share the same font roles. */
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+  --font-editorial: var(--font-instrument-serif), Georgia, serif;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   font-size: var(--text-body);
   line-height: var(--leading-body);
   min-height: 100vh;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 ::selection {
@@ -180,23 +218,48 @@ a {
   cursor: not-allowed;
 }
 
-.field[aria-invalid="true"] { border-color: var(--danger); }
-.field[aria-invalid="true"]:focus { box-shadow: 0 0 0 4px var(--danger-soft); }
-.field option { background: var(--surface-2); color: var(--foreground); }
-.field::file-selector-button { cursor: pointer; transition: background-color var(--duration-fast); }
-.field::file-selector-button:hover { background: var(--accent-soft); }
+.field[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.field[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 4px var(--danger-soft);
+}
+
+.field option {
+  background: var(--surface-2);
+  color: var(--foreground);
+}
+
+.field::file-selector-button {
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+}
+
+.field::file-selector-button:hover {
+  background: var(--accent-soft);
+}
+
 .field:-webkit-autofill {
   -webkit-text-fill-color: var(--foreground);
   caret-color: var(--foreground);
   box-shadow: 0 0 0 1000px var(--surface-2) inset;
 }
+
 .field:-webkit-autofill:focus {
-  box-shadow: 0 0 0 1000px var(--surface-2) inset, 0 0 0 4px var(--accent-soft);
+  box-shadow:
+    0 0 0 1000px var(--surface-2) inset,
+    0 0 0 4px var(--accent-soft);
 }
-input, select, textarea { accent-color: var(--accent); }
+
+input,
+select,
+textarea {
+  accent-color: var(--accent);
+}
 
 select.field {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239aa8ba' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23718176' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
 }
@@ -249,6 +312,7 @@ select.field {
 }
 
 .text-label {
+  font-family: var(--font-mono);
   font-size: var(--text-label);
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -299,6 +363,7 @@ select.field {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -309,6 +374,7 @@ select.field {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -328,9 +394,23 @@ select.field {
     transition-duration: 0.01ms !important;
   }
 
+  a:hover,
+  button:hover {
+    translate: none;
+  }
+
   .hover-lift:hover,
   .hover-scale:hover,
   .hover-scale:active {
     transform: none;
   }
+}
+
+.theme-toggle .theme-moon,
+[data-theme="light"] .theme-toggle .theme-sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .theme-moon {
+  display: block;
 }

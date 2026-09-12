@@ -35,13 +35,13 @@ const stats = [
 
 export function IntroSection() {
   return (
-    <section className="home-community border-b border-line bg-surface">
+    <section id="community" className="home-community scroll-mt-20 border-b border-line bg-surface">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <MotionReveal>
             <div>
               <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
-                SAIT / The community
+                01 / SAIT / The community
               </p>
 
               <div className="mt-5 h-px w-16 bg-accent" />

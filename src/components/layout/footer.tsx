@@ -13,7 +13,7 @@ import { Container } from "@/components/ui/container";
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-white/10 bg-surface-ink text-nav-fg">
+    <footer className="mt-auto border-t border-line bg-surface-ink text-nav-fg">
       <Container className="py-12 sm:py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           {/* SAIT identity */}
@@ -22,7 +22,7 @@ export function Footer() {
               href={siteRoutes.home}
               className="inline-flex items-center gap-3"
             >
-              <span className="grid h-9 w-9 place-items-center rounded-[var(--radius-md)] border border-white/15 bg-white/5 font-display text-sm font-bold">
+              <span className="grid h-9 w-9 place-items-center rounded-[var(--radius-md)] border border-line-strong bg-surface-2 font-display text-sm font-bold">
                 SA
               </span>
 
@@ -47,7 +47,7 @@ export function Footer() {
 
               <a
                 href={`mailto:${site.email}`}
-                className="flex items-center gap-2 text-sm text-nav-muted transition-colors hover:text-accent-fg"
+                className="flex min-h-11 items-center gap-2 text-sm text-nav-muted transition-colors hover:text-accent-fg"
               >
                 <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {site.email}
@@ -62,21 +62,21 @@ export function Footer() {
 
               <span
                 aria-label="Instagram coming soon"
-                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-nav-muted"
+                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-line text-nav-muted"
               >
                 <Instagram size={15} aria-hidden="true" />
               </span>
 
               <span
                 aria-label="LinkedIn coming soon"
-                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-nav-muted"
+                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-line text-nav-muted"
               >
                 <Linkedin size={15} aria-hidden="true" />
               </span>
 
               <span
                 aria-label="GitHub coming soon"
-                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-white/10 text-nav-muted"
+                className="grid h-9 w-9 cursor-default place-items-center rounded-full border border-line text-nav-muted"
               >
                 <Github size={15} aria-hidden="true" />
               </span>
@@ -93,7 +93,7 @@ export function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="group inline-flex min-h-10 items-center gap-1 text-sm text-nav-muted transition-colors hover:text-accent-fg"
+                      className="group inline-flex min-h-11 items-center gap-1 text-sm text-nav-muted transition-colors hover:text-accent-fg"
                     >
                       {item.label}
 
@@ -112,7 +112,7 @@ export function Footer() {
       </Container>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-line">
         <Container className="flex flex-col gap-2 py-4 text-xs text-nav-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.shortName} · {site.university}

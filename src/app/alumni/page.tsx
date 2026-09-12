@@ -66,13 +66,13 @@ export default function AlumniPage() {
                     <div className="flex flex-col bg-surface-ink p-6 text-nav-fg sm:p-9 lg:p-10">
                       <div className="flex items-center justify-between gap-4">
                         <p className="font-mono text-xs uppercase tracking-[0.14em] text-nav-muted">Class of {person.batch}</p>
-                        <span aria-hidden="true" className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-white/15 bg-white/5 font-display text-xl font-semibold">{person.initials}</span>
+                        <span aria-hidden="true" className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-line-strong bg-surface-2 font-display text-xl font-semibold">{person.initials}</span>
                       </div>
                       <h3 id={`story-${person.id}`} className="mt-8 font-display text-3xl font-bold tracking-[-0.035em] sm:text-4xl">{person.name}</h3>
                       <p className="mt-3 text-base text-nav-fg">{person.currentRole}</p>
                       <p className="mt-2 text-sm text-nav-muted">{person.company}</p>
                       <div className="mt-auto pt-8">
-                        <p className="border-t border-white/10 pt-5 font-mono text-xs uppercase tracking-[0.12em] text-accent">{person.area}</p>
+                        <p className="border-t border-line pt-5 font-mono text-xs uppercase tracking-[0.12em] text-accent">{person.area}</p>
                       </div>
                     </div>
                     <div className="p-6 sm:p-9 lg:p-10">
@@ -162,7 +162,7 @@ export default function AlumniPage() {
         </Container>
       </section>
 
-      <section id="connected" aria-labelledby="connected-heading" className="scroll-mt-20 border-b border-white/10 bg-surface-ink text-nav-fg">
+      <section id="connected" aria-labelledby="connected-heading" className="scroll-mt-20 border-b border-line bg-surface-ink text-nav-fg">
         <Container className={`${layout} ${sectionSpace}`}>
           <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
             <MotionReveal>
@@ -170,7 +170,7 @@ export default function AlumniPage() {
               <h2 id="connected-heading" className="text-section mt-5">You move forward.<br />The connection stays.</h2>
               <p className="mt-5 max-w-md text-base leading-7 text-nav-muted">You don&apos;t need a perfect career story to give something back. A little time, an honest perspective, or a useful question can make the next step easier for someone else.</p>
             </MotionReveal>
-            <div className="divide-y divide-white/10 border-y border-white/10">
+            <div className="divide-y divide-line border-y border-line">
               {connections.map((connection, index) => (
                 <MotionReveal key={connection.title} delay={index * 0.04}>
                   <div className="py-6 sm:py-7">
