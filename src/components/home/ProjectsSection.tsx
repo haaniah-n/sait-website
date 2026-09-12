@@ -18,7 +18,7 @@ const projects = featuredProjects.slice(1).map((project) => ({
 export function ProjectsSection() {
   return (
     <section className="home-projects border-b border-line bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8 sm:pt-20 sm:pb-12 lg:px-10 lg:pt-24 lg:pb-14">
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <MotionReveal>
@@ -52,15 +52,11 @@ export function ProjectsSection() {
             href="/projects"
             className="project-feature group relative mt-14 block overflow-hidden border text-nav-fg transition-colors"
           >
-
-            <div className="relative grid gap-10 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:p-12">
+            <div className="relative grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_auto] lg:p-10">
               <div>
                 <div className="flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-md)] bg-accent-soft text-accent">
-                    <featuredProject.icon
-                      size={19}
-                      aria-hidden="true"
-                    />
+                    <featuredProject.icon size={19} aria-hidden="true" />
                   </span>
 
                   <span className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
@@ -80,7 +76,10 @@ export function ProjectsSection() {
                   {featuredProject.description}
                 </p>
 
-                <span data-pointer="magnetic" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-nav-fg">
+                <span
+                  data-pointer="magnetic"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-nav-fg"
+                >
                   Explore project
                   <ArrowUpRight
                     size={16}
@@ -91,7 +90,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Typographic project identity */}
-              <div  className="project-identity flex min-h-52 items-center justify-center rounded-[var(--radius-lg)] border border-line bg-surface-2 p-8 lg:min-h-64 lg:w-72">
+              <div className="project-identity flex min-h-52 items-center justify-center rounded-[var(--radius-lg)] border border-line bg-surface-2 p-8 lg:min-h-64 lg:w-72">
                 <div className="text-center">
                   <p className="font-display text-6xl font-bold tracking-[-0.06em] text-nav-fg">
                     N
@@ -106,7 +105,7 @@ export function ProjectsSection() {
         </MotionReveal>
 
         {/* Smaller projects */}
-        <div className="project-previews mt-5 grid gap-3 md:grid-cols-2">
+        <div className="project-previews mt-2 grid gap-3 md:grid-cols-2">
           {projects.map((project, index) => {
             const Icon = project.icon;
 
@@ -150,7 +149,7 @@ export function ProjectsSection() {
 
         {/* View all */}
         <MotionReveal style={{ animationDelay: "460ms" }}>
-          <div className="mt-10 flex justify-end">
+          <div className="mt-5 flex justify-end">
             <Link
               href="/projects"
               data-pointer="magnetic"

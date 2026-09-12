@@ -28,8 +28,7 @@ export function AchievementsSection() {
           <MotionReveal style={{ animationDelay: "100ms" }}>
             <div>
               <h2 className="text-section max-w-3xl">
-                Built. Competed.{" "}
-                <span className="text-accent">Achieved.</span>
+                Built. Competed. <span className="text-accent">Achieved.</span>
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-nav-muted">
@@ -95,11 +94,6 @@ export function AchievementsSection() {
         {/* Bottom CTA */}
         <MotionReveal style={{ animationDelay: "520ms" }}>
           <div className="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3 text-sm text-nav-muted">
-              <CircleDot size={17} className="text-accent" aria-hidden="true" />
-              <span>Illustrative milestones · all achievements shown are fictional.</span>
-            </div>
-
             <Link
               href="/achievements"
               data-pointer="magnetic"

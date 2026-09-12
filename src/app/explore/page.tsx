@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  BriefcaseBusiness,
   Code2,
   GraduationCap,
   Medal,
   Sparkles,
-  Users,
 } from "lucide-react";
 
 import { MotionReveal } from "@/components/effects/motion-reveal";
@@ -66,14 +64,12 @@ const achievements = [
   {
     value: "01",
     title: "Technical competitions",
-    description:
-      "Students competing, building, and shipping under pressure.",
+    description: "Students competing, building, and shipping under pressure.",
   },
   {
     value: "02",
     title: "Hackathons",
-    description:
-      "Ideas turning into working prototypes in hours, not months.",
+    description: "Ideas turning into working prototypes in hours, not months.",
   },
   {
     value: "03",
@@ -95,7 +91,6 @@ export default function ExplorePage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-background">
-
         <Container className="relative py-20 sm:py-24 lg:py-32">
           <MotionReveal>
             <div className="max-w-4xl">
@@ -108,9 +103,9 @@ export default function ExplorePage() {
               </h1>
 
               <p className="mt-7 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
-                Projects, achievements, people, and opportunities — discover
-                the different ways students learn, create, contribute, and
-                grow together.
+                Projects, achievements, people, and opportunities — discover the
+                different ways students learn, create, contribute, and grow
+                together.
               </p>
             </div>
           </MotionReveal>
@@ -299,7 +294,9 @@ export default function ExplorePage() {
                 <h2 className="mt-3 font-display text-3xl font-bold tracking-[-0.04em] text-foreground sm:text-4xl">
                   The community continues.
                 </h2>
-                <p className="mt-3 text-xs leading-5 text-muted">Illustrative stories · all alumni profiles are fictional.</p>
+                <p className="mt-3 text-xs leading-5 text-muted">
+                  Illustrative alumni stories for this prototype.
+                </p>
               </div>
 
               <Link
@@ -333,9 +330,7 @@ export default function ExplorePage() {
                       {alumni.name}
                     </h3>
 
-                    <p className="mt-0.5 text-sm text-accent">
-                      {alumni.role}
-                    </p>
+                    <p className="mt-0.5 text-sm text-accent">{alumni.role}</p>
 
                     <p className="mt-1 text-xs leading-5 text-muted">
                       {alumni.detail}
@@ -359,23 +354,19 @@ export default function ExplorePage() {
         <Container className="py-20 sm:py-24 lg:py-28">
           <MotionReveal>
             <div className="relative overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink px-6 py-14 text-center shadow-[var(--shadow-md)] sm:px-10 sm:py-20">
-
               <div className="relative">
                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
                   <Sparkles size={17} aria-hidden="true" />
                 </div>
 
-                <p className="mt-6 text-label text-accent">
-                  Your next step
-                </p>
+                <p className="mt-6 text-label text-accent">Your next step</p>
 
                 <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl font-bold tracking-[-0.04em] text-nav-fg sm:text-4xl lg:text-5xl">
                   Find your place in SAIT.
                 </h2>
 
                 <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-nav-muted sm:text-base">
-                  Build something. Join something. Meet people. Start
-                  somewhere.
+                  Build something. Join something. Meet people. Start somewhere.
                 </p>
 
                 <Link

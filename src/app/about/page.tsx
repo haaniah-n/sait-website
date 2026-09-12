@@ -1,3 +1,4 @@
+import { faculty, committee } from "@/data/people";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { MotionReveal } from "@/components/effects/motion-reveal";
@@ -339,28 +340,7 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-6 grid gap-px overflow-hidden rounded-[var(--radius-xl)] border border-line bg-line sm:grid-cols-2">
-              {[
-                {
-                  name: "Dr. Ananya Menon",
-                  role: "Head of Information Technology",
-                  initials: "AM",
-                },
-                {
-                  name: "Dr. Arjun Nair",
-                  role: "Associate Professor",
-                  initials: "AN",
-                },
-                {
-                  name: "Dr. Meera Krishnan",
-                  role: "Assistant Professor",
-                  initials: "MK",
-                },
-                {
-                  name: "Dr. Rahul Varma",
-                  role: "Assistant Professor",
-                  initials: "RV",
-                },
-              ].map((person) => (
+              {faculty.map((person) => (
                 <article
                   key={person.name}
                   className="group bg-background p-6 transition-colors hover:bg-surface-2 sm:p-7"
@@ -402,34 +382,13 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-6 divide-y divide-line border-y border-line">
-              {[
-                {
-                  name: "Aarav Menon",
-                  role: "Chairperson",
-                  number: "01",
-                },
-                {
-                  name: "Diya Nair",
-                  role: "Secretary",
-                  number: "02",
-                },
-                {
-                  name: "Rohan Mathew",
-                  role: "Treasurer",
-                  number: "03",
-                },
-                {
-                  name: "Anika Thomas",
-                  role: "Joint Secretary",
-                  number: "04",
-                },
-              ].map((person) => (
+              {committee.map((person, index) => (
                 <div
                   key={person.name}
                   className="flex items-center gap-4 py-4"
                 >
                   <span className="font-mono text-xs text-muted">
-                    {person.number}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <div className="min-w-0 flex-1">

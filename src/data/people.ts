@@ -55,3 +55,61 @@ export const people: Person[] = [
     skills: ["Events", "Content"],
   },
 ];
+
+// Fictional prototype profiles, pending an approved community roster.
+export const faculty = [
+  {
+    name: "Dr. Mira Dev",
+    initials: "MD",
+    role: "Head of Division",
+    focus:
+      "Supporting the direction of IT education and the community around it.",
+  },
+  {
+    name: "Dr. Kiran Venu",
+    initials: "KV",
+    role: "Faculty Advisor · SAIT",
+    focus: "Helping student ideas find guidance, resources, and room to grow.",
+  },
+  {
+    name: "Dr. Leena Roy",
+    initials: "LR",
+    role: "Faculty Coordinator",
+    focus:
+      "Connecting classroom learning with workshops and student initiatives.",
+  },
+  {
+    name: "Nikhil Das",
+    initials: "ND",
+    role: "Technical & Lab Support",
+    focus:
+      "Supporting the spaces and tools students use to experiment and build.",
+  },
+];
+
+export const committee = [
+  {
+    name: "Tara Nandan",
+    initials: "TN",
+    role: "Chairperson",
+    focus: "Bringing people and ideas together.",
+  },
+  {
+    name: "Ishan Ravi",
+    initials: "IR",
+    role: "Secretary",
+    focus: "Turning plans into shared progress.",
+  },
+  {
+    name: "Neha Kiran",
+    initials: "NK",
+    role: "Treasurer",
+    focus: "Making every community resource count.",
+  },
+  {
+    name: "Rishi Dev",
+    initials: "RD",
+    role: "Joint Secretary",
+    focus: "Keeping teams connected and moving.",
+  },
+];

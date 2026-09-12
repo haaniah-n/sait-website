@@ -12,6 +12,8 @@ export const site = {
     "SAIT is the student community of the Division of Information Technology at the School of Engineering, CUSAT — workshops, projects, careers, and alumni in one place.",
   email: "sait@cusat.ac.in",
   location: "SOE, CUSAT, Kochi",
+  locationUrl:
+  "https://www.google.com/maps/search/?api=1&query=School+of+Engineering+CUSAT+Kochi",
   instagram: "https://instagram.com",
   linkedin: "https://linkedin.com",
   github: "https://github.com",

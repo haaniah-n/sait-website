@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-import { Menu, X } from "lucide-react";
+import { Bell, Menu, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import { useNavIndicator } from "@/components/effects/use-nav-indicator";
 import { usePointerEffects } from "@/components/effects/use-pointer-effects";
@@ -50,13 +50,23 @@ export function Navbar() {
     if (footer) footer.inert = true;
     function trap(event: KeyboardEvent) {
       if (event.key !== "Tab" || !header) return;
-      const items = Array.from(header.querySelectorAll<HTMLElement>('a[href], button')).filter(item => item.getClientRects().length);
-      const first = items[0], last = items[items.length - 1];
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      const items = Array.from(
+        header.querySelectorAll<HTMLElement>("a[href], button"),
+      ).filter((item) => item.getClientRects().length);
+      const first = items[0],
+        last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
     }
     const wide = matchMedia("(min-width: 1280px)");
-    const closeOnWide = () => { if (wide.matches) setOpen(false); };
+    const closeOnWide = () => {
+      if (wide.matches) setOpen(false);
+    };
     wide.addEventListener("change", closeOnWide);
     window.addEventListener("keydown", trap);
     return () => {
@@ -83,7 +93,10 @@ export function Navbar() {
   }, []);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 border-b border-line bg-nav text-nav-fg">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 border-b border-line bg-nav text-nav-fg"
+    >
       <Container className="flex h-16 items-center justify-between gap-2 sm:gap-4">
         {/* Brand */}
         <Link
@@ -135,6 +148,20 @@ export function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
+          <Link
+            href={siteRoutes.notifications}
+            aria-label="Notifications and announcements"
+            title="Notifications"
+            className="relative hidden h-10 w-10 place-items-center rounded-[var(--radius-md)] text-nav-muted transition-colors duration-[var(--duration-fast)] hover:bg-surface-2 hover:text-accent-fg xl:grid"
+          >
+            <Bell size={18} aria-hidden="true" />
+
+            <span
+              aria-hidden="true"
+              className="absolute right-2 top-2 h-2 w-2 rounded-full bg-signal"
+            />
+          </Link>
+
           <ThemeToggle />
           <ButtonLink
             href={siteRoutes.contact}
@@ -156,11 +183,7 @@ export function Navbar() {
             aria-controls={menuId}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </Container>
@@ -172,7 +195,9 @@ export function Navbar() {
           className="fixed inset-x-0 bottom-0 top-16 border-t border-line bg-background xl:hidden"
         >
           <Container className="h-full overflow-y-auto py-6 sm:py-10">
-            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">SAIT / Explore the collective</p>
+            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">
+              SAIT / Explore the collective
+            </p>
             <nav aria-label="Mobile" className="grid gap-1">
               {mobileNav.map((item) => {
                 const active = isActive(pathname, item.href);

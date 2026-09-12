@@ -357,7 +357,7 @@
   .network-node-people, .network-node-events { transform: translate(-50%, calc(-100% + 22px)); }
   .network-node-people .node-icon, .network-node-events .node-icon { order: 1; margin-top: .375rem; }
   .node-icon { width: 44px; height: 44px; }
-  .node-label { font-size: 12px; margin-top: .25rem; }
+  .node-label { font-size: 12px; margin-top: .125rem; }
   .node-phrase { max-width: 90px; font-size: 11px; line-height: 1.3; margin-top: .125rem; }
   .network-node-projects { left: 18%; }
   .network-node-careers { left: 82%; }

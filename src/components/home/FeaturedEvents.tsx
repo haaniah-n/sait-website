@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 import { MotionReveal } from "./HomeReveal";
-import { nextEvent, upcomingEvents as scheduledEvents, eventCategoryLabels, formatEventDate, formatEventTime } from "@/data/events";
+import {
+  nextEvent,
+  upcomingEvents as scheduledEvents,
+  eventCategoryLabels,
+  formatEventDate,
+  formatEventTime,
+} from "@/data/events";
 import { siteRoutes } from "@/lib/routes";
 
 const featuredEvent = {
@@ -24,7 +30,7 @@ const upcomingEvents = scheduledEvents.slice(1, 4).map((event) => ({
 export function FeaturedEvents() {
   return (
     <section className="home-events border-b border-line bg-surface">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 pt-14 pb-12 sm:px-8 sm:pt-16 sm:pb-14 lg:px-10 lg:pt-20 lg:pb-16">
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <MotionReveal>
@@ -40,15 +46,13 @@ export function FeaturedEvents() {
           <MotionReveal style={{ animationDelay: "100ms" }}>
             <div>
               <h2 className="text-section max-w-3xl text-foreground">
-                Ideas become{" "}
-                <span className="text-accent">experiences.</span>
+                Ideas become <span className="text-accent">experiences.</span>
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-muted">
                 Discover workshops, competitions, meetups, and experiences
                 happening across the SAIT community.
               </p>
-              <p className="mt-3 text-xs leading-5 text-muted">Fictional demo schedule · September 2026.</p>
             </div>
           </MotionReveal>
         </div>
@@ -57,11 +61,9 @@ export function FeaturedEvents() {
         <MotionReveal style={{ animationDelay: "180ms" }}>
           <Link
             href={`${siteRoutes.events}#next-up`}
-
             className="event-feature group mt-14 grid overflow-hidden border bg-surface-ink text-nav-fg transition-colors lg:grid-cols-[1.25fr_0.75fr]"
           >
             <div className="relative overflow-hidden p-7 sm:p-10 lg:p-12">
-
               <div className="relative">
                 <span className="inline-flex rounded-full border border-line bg-surface-2 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
                   {featuredEvent.category}
@@ -111,7 +113,11 @@ export function FeaturedEvents() {
                     Venue
                   </p>
                   <p className="mt-2 flex items-center gap-2 text-lg font-semibold">
-                    <MapPin size={17} className="text-accent" aria-hidden="true" />
+                    <MapPin
+                      size={17}
+                      className="text-accent"
+                      aria-hidden="true"
+                    />
                     {featuredEvent.venue}
                   </p>
                 </div>
@@ -123,10 +129,7 @@ export function FeaturedEvents() {
         {/* Upcoming events */}
         <div className="mt-5 grid gap-3 md:grid-cols-3">
           {upcomingEvents.map((event, index) => (
-            <MotionReveal
-              key={event.title}
-              delay={index * 0.1}
-            >
+            <MotionReveal key={event.title} delay={index * 0.1}>
               <Link
                 href={`${siteRoutes.events}#event-${event.id}`}
                 className="event-preview group block border transition-colors"
@@ -165,7 +168,7 @@ export function FeaturedEvents() {
 
         {/* All events */}
         <MotionReveal style={{ animationDelay: "540ms" }}>
-          <div className="mt-10 flex justify-end">
+          <div className="mt-6 flex justify-end">
             <Link
               href={siteRoutes.events}
               data-pointer="magnetic"

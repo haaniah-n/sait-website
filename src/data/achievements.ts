@@ -56,7 +56,7 @@ export const achievements: HallOfFameAchievement[] = [
     date: "2026-06-12",
     result: "Paper accepted",
     contributor: "Student Systems Circle",
-    description: "A study of lightweight text models was accepted into the fictional Student Systems Review, with experiments documented for others to reproduce.",
+    description: "A study of lightweight text models explored efficient experimentation, with findings documented for others to reproduce.",
     spotlight: false,
   },
   {
@@ -92,7 +92,7 @@ export const achievements: HallOfFameAchievement[] = [
     date: "2025-02-15",
     result: "Jury mention",
     contributor: "Team Patchwork",
-    description: "A student-built interface for navigating shared study resources earned a jury mention at the fictional Campus Prototype Forum.",
+    description: "A student-built interface for navigating shared study resources earned recognition for its approach to navigating shared study resources.",
     spotlight: false,
   },
 ];

@@ -40,11 +40,15 @@ export function Footer() {
             </p>
 
             <div className="mt-5 space-y-2">
-              <p className="flex items-center gap-2 text-sm text-nav-muted">
+              <a
+                href={site.locationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-fit items-center gap-2 text-sm text-nav-muted transition-colors hover:text-signal"
+              >
                 <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {site.location}
-              </p>
-
+              </a>
               <a
                 href={`mailto:${site.email}`}
                 className="flex min-h-11 items-center gap-2 text-sm text-nav-muted transition-colors hover:text-accent-fg"
