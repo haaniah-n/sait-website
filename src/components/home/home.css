@@ -5,18 +5,24 @@
 .sait-home .home-reveal { transition: opacity .5s ease; }
 .sait-home .home-reveal[data-pending] { opacity: .35; }
 .home-hero { isolation: isolate; border-bottom: 1px solid var(--line); }
-.hero-architecture { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--line); opacity: .45; pointer-events: none; z-index: -1; }
-.hero-composition { display: grid; grid-template-columns: .95fr 1.05fr; gap: 2rem; align-items: center; padding-block: 5rem 3rem; }
+/* Only the atmospheric layer is clipped; orbital labels keep their full bounds. */
+.hero-campus { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.hero-campus-image { object-fit: cover; object-position: right center; }
+.hero-campus::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, var(--background) 10%, color-mix(in srgb, var(--background) 94%, transparent) 30%, transparent 70%), linear-gradient(to top, var(--background), transparent 16%); }
+.home-hero .node-phrase { color: color-mix(in srgb, var(--foreground) 65%, var(--muted)); }
+.hero-campus-light, [data-theme="light"] .hero-campus-dark { display: none; }
+[data-theme="light"] .hero-campus-light { display: block; }
+.hero-composition { display: grid; grid-template-columns: .95fr 1.05fr; gap: 2rem; align-items: center; padding-block: 2rem 1.5rem; }
 .hero-copy { min-width: 0; }
 .hero-metadata, .hero-orbit-caption, .hero-orbit-footer { font: 11px/1.8 var(--font-mono); letter-spacing: .08em; color: var(--muted); }
 .hero-title { margin-top: 2rem; font: 600 clamp(4.6rem, 7.6vw, 7.4rem)/.92 var(--font-display); letter-spacing: -.075em; }
 .hero-title > span { color: var(--accent); }
 .hero-annotation { margin-top: 2rem; font: italic clamp(1.5rem, 2.3vw, 2rem)/1.3 var(--font-editorial); color: var(--foreground); }
-.hero-orbit-panel { min-width: 0; }
-.hero-orbit-caption { display: flex; justify-content: space-between; gap: 1rem; padding-block: .75rem; border-block: 1px solid var(--line); }
-.hero-orbit-footer { border-top: 1px solid var(--line); padding-top: .75rem; text-align: center; text-transform: uppercase; }
-.hero-network { position: relative; width: 100%; height: 600px; max-width: 620px; margin-inline: auto; }
-.orbital-ring { position: absolute; border: 1px solid var(--line); border-radius: 50%; pointer-events: none; }
+.hero-orbit-panel { min-width: 0; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--background) 40%, transparent), transparent 72%); }
+.hero-orbit-caption { background: linear-gradient(to right, transparent, color-mix(in srgb, var(--background) 85%, transparent) 15%, color-mix(in srgb, var(--background) 85%, transparent) 85%, transparent); display: flex; justify-content: space-between; gap: 1rem; padding-block: .75rem; border-block: 1px solid var(--line); }
+.hero-orbit-footer { background: linear-gradient(to right, transparent, color-mix(in srgb, var(--background) 85%, transparent) 15%, color-mix(in srgb, var(--background) 85%, transparent) 85%, transparent); border-top: 1px solid var(--line); padding-top: .75rem; text-align: center; text-transform: uppercase; }
+.hero-network { position: relative; width: min(100%, 530px); aspect-ratio: 1 / 1; height: auto; margin-inline: auto; }
+.orbital-ring { aspect-ratio: 1 / 1; position: absolute; border: 1px solid var(--line); border-radius: 50%; pointer-events: none; }
 .orbital-ring-outer { inset: 12% 12%; }
 .orbital-ring-inner { inset: 27%; border-color: var(--connection); opacity: .65; }
 .orbit-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -27,6 +33,8 @@
 .network-core > span { font: 500 2.8rem/1 var(--font-display); letter-spacing: -.06em; }
 .network-core > small { margin-top: .7rem; font: 11px var(--font-mono); color: var(--muted); }
 .network-node { position: absolute; z-index: 2; display: flex; width: 132px; flex-direction: column; align-items: center; text-align: center; transform: translate(-50%, -28px); border-radius: 2px; }
+/* Text-level contrast leaves the surrounding photograph unobscured. */
+.network-node .node-label, .network-node .node-phrase { text-shadow: 0 0 3px var(--background), 0 1px 6px var(--background), 0 0 10px var(--background); }
 .network-node-people { left: 25%; top: 18%; }
 .network-node-events { left: 75%; top: 18%; }
 .network-node-projects { left: 12%; top: 50%; }
@@ -39,7 +47,7 @@
 .network-node:is(:hover, :focus-visible) .node-icon { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
 .network-node:is(:hover, :focus-visible) .node-phrase { color: var(--foreground); }
 .orbit-signal { position: absolute; left: 42%; top: 12.5%; height: 5px; width: 5px; border-radius: 50%; background: var(--accent); }
-.hero-scroll { margin: 0 auto; max-width: 1200px; min-height: 64px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: .75rem; font: 11px var(--font-mono); color: var(--muted); }
+.hero-scroll { margin: 0 auto; max-width: 1200px; min-height: 48px; padding: .5rem 1.25rem; display: flex; align-items: center; gap: .75rem; font: 11px var(--font-mono); color: var(--muted); }
 .hero-scroll > span { flex: 1; height: 1px; background: var(--line); margin-left: 1rem; }
 .sait-home .community-sequence { gap: 2rem; position: relative; }
 .sait-home .community-step { position: relative; border-top: 1px solid var(--connection); padding: 1.7rem 0 0; background: transparent; }
@@ -94,16 +102,29 @@
 }
 @media (max-width: 1199px) and (min-width: 1024px) {
   .hero-composition { gap: 1rem; grid-template-columns: .9fr 1.1fr; }
-  .hero-network { height: 580px; }
   .network-node { width: 110px; }
   .node-phrase { max-width: 105px; }
+}
+/* Fit short desktop windows without shrinking node labels or touch targets. */
+@media (min-width: 1024px) and (max-height: 760px) {
+  .hero-composition { padding-block: .75rem; }
+  .hero-copy > * + * { margin-top: .5rem; }
+  .hero-title { font-size: clamp(4.6rem, 11svh, 5.25rem); }
+  .hero-copy > .leading-8 { line-height: 1.625rem; }
+  .hero-network { max-width: 510px; }
+  .hero-orbit-caption { padding-block: .375rem; }
+  .hero-orbit-footer { padding-top: .25rem; }
+  .hero-scroll { min-height: 36px; padding-block: .25rem; }
 }
 @media (max-width: 1023px) {
   .hero-composition { grid-template-columns: 1fr; padding-top: 3rem; gap: 3rem; }
   .hero-title { font-size: clamp(4.4rem, 12vw, 7rem); }
   .hero-copy { max-width: 680px; }
   .hero-orbit-panel { width: 100%; max-width: 620px; margin: 0 auto; }
-  .hero-architecture { opacity: .25; }
+  /* A bottom-aligned atmosphere accompanies the stacked orbit, leaving copy clear. */
+  .hero-campus { top: auto; height: min(760px, calc(100vw + 160px)); mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 86%, transparent); }
+  .hero-campus-image { object-position: 78% center; }
+  .hero-campus::after { background: linear-gradient(to bottom, var(--background), transparent 18%, transparent 85%, var(--background)); }
 }
 @media (max-width: 639px) {
   .hero-composition { padding-top: 2rem; }
@@ -111,19 +132,21 @@
   .hero-metadata { font-size: 11px; letter-spacing: .04em; }
   .hero-orbit-caption { font-size: 10px; letter-spacing: .02em; }
   .hero-orbit-footer { font-size: 10px; }
-  .hero-network { height: 560px; }
-  .network-core { width: 96px; height: 96px; outline-width: 5px; }
+  .hero-network { margin-block: 3.5rem 2.5rem; }
+  .network-core { width: 80px; height: 80px; outline-width: 5px; }
   .network-core > span { font-size: 2rem; }
   .network-core > small { font-size: 10px; margin-top: .5rem; }
-  .network-node { width: 100px; transform: translate(-50%, -24px); }
-  .node-icon { width: 48px; height: 48px; }
-  .node-label { font-size: 13px; }
-  .node-phrase { max-width: 96px; font-size: 12px; }
+  .network-node { width: 90px; transform: translate(-50%, -22px); }
+  .network-node-people, .network-node-events { transform: translate(-50%, calc(-100% + 22px)); }
+  .network-node-people .node-icon, .network-node-events .node-icon { order: 1; margin-top: .375rem; }
+  .node-icon { width: 44px; height: 44px; }
+  .node-label { font-size: 12px; margin-top: .25rem; }
+  .node-phrase { max-width: 90px; font-size: 11px; line-height: 1.3; margin-top: .125rem; }
   .network-node-projects { left: 18%; }
   .network-node-careers { left: 82%; }
   .orbit-lines-desktop { display: none; }
   .orbit-lines-mobile { display: block; }
-  .orbital-ring-outer { inset-inline: 18%; }
+  .orbital-ring-outer { inset: 18%; }
   .sait-home .achievement-row { grid-template-columns: 36px 1fr; gap: 1rem; }
   .sait-home .achievement-row > div { grid-column: 1 / -1; }
   .sait-home .final-connections { opacity: .25; }

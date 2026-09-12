@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { ITEcosystem } from "./ITEcosystem";
@@ -5,18 +6,24 @@ import { ITEcosystem } from "./ITEcosystem";
 export function Hero() {
   return (
     <section className="home-hero" aria-labelledby="hero-heading">
-      {/* Abstract architectural study; intentionally not a depiction of campus. */}
-      <svg
-        className="hero-architecture"
-        viewBox="0 0 1400 900"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden="true"
-      >
-        <g fill="none" stroke="currentColor" strokeWidth="1">
-          <path d="M800 900V90H1340V900 M830 900V120H1310V900 M860 900V150H1280V900 M800 220H1340 M800 650H1340 M1070 90V900" />
-          <path d="M0 830H1400 M0 850H1400 M990 900V710H1170V900" />
-        </g>
-      </svg>
+      <div className="hero-campus" aria-hidden="true">
+        <Image
+          src="/images/sait-hero-campus-dark.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hero-campus-image hero-campus-dark"
+        />
+        <Image
+          src="/images/sait-hero-campus-light.png"
+          alt=""
+          fill
+          loading="eager"
+          sizes="100vw"
+          className="hero-campus-image hero-campus-light"
+        />
+      </div>
 
       <div className="hero-composition mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="hero-copy">

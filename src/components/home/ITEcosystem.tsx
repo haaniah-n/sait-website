@@ -79,7 +79,7 @@ export function ITEcosystem() {
               : "orbit-lines orbit-lines-desktop"
           }
           viewBox="0 0 600 600"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid meet"
           aria-hidden="true"
         >
           {nodes.map((node) => {
