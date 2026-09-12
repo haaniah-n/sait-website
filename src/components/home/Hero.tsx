@@ -7,22 +7,25 @@ export function Hero() {
   return (
     <section className="home-hero" aria-labelledby="hero-heading">
       <div className="hero-campus" aria-hidden="true">
-        <Image
-          src="/images/sait-hero-campus-dark.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="hero-campus-image hero-campus-dark"
-        />
-        <Image
-          src="/images/sait-hero-campus-light.png"
-          alt=""
-          fill
-          loading="eager"
-          sizes="100vw"
-          className="hero-campus-image hero-campus-light"
-        />
+        <div className="hero-campus-sticky">
+          <Image
+            src="/images/sait-hero-campus-dark.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-campus-image hero-campus-dark"
+          />
+
+          <Image
+            src="/images/sait-hero-campus-light.png"
+            alt=""
+            fill
+            loading="eager"
+            sizes="100vw"
+            className="hero-campus-image hero-campus-light"
+          />
+        </div>
       </div>
 
       <div className="hero-composition mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
