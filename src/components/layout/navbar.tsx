@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { useNavIndicator } from "@/components/effects/use-nav-indicator";
+import { usePointerEffects } from "@/components/effects/use-pointer-effects";
 import { usePathname } from "next/navigation";
 
 import { site } from "@/data/site";
@@ -20,6 +22,10 @@ export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const menuId = useId();
+  const headerRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  useNavIndicator(navRef, pathname);
+  usePointerEffects(headerRef, pathname === "/");
 
   useEffect(() => {
     setOpen(false);
@@ -48,7 +54,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-nav text-nav-fg">
+    <header ref={headerRef} className="sticky top-0 z-50 border-b border-white/10 bg-nav text-nav-fg">
       <Container className="flex h-16 items-center justify-between gap-4">
         {/* Brand */}
         <Link
@@ -72,9 +78,11 @@ export function Navbar() {
 
         {/* Desktop navigation */}
         <nav
-          className="hidden items-center gap-0.5 xl:flex"
+          ref={navRef}
+          className="sait-desktop-nav hidden items-center gap-0.5 xl:flex"
           aria-label="Primary"
         >
+          <span className="sait-nav-indicator" aria-hidden="true" />
           {desktopNav.map((item) => {
             const active = isActive(pathname, item.href);
 
@@ -103,6 +111,7 @@ export function Navbar() {
             variant="accent"
             size="sm"
             className="hidden sm:inline-flex"
+            data-pointer={pathname === "/" ? "magnetic" : undefined}
           >
             Get Involved
           </ButtonLink>

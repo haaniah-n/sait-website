@@ -7,6 +7,8 @@ import { cn } from "@/lib/cn";
 export function MotionReveal({ children, className, rise = true, delay, style, ...props }:
   HTMLAttributes<HTMLDivElement> & { rise?: boolean; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const authoredDelay = typeof style?.animationDelay === "string" ? parseFloat(style.animationDelay) / (style.animationDelay.endsWith("ms") ? 1000 : 1) : 0;
+  const revealDelay = Math.max(0, Math.min(delay ?? authoredDelay, 0.24));
   useEffect(() => {
     const element = ref.current;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -27,5 +29,5 @@ export function MotionReveal({ children, className, rise = true, delay, style, .
     };
   }, []);
   return <div {...props} ref={ref} className={cn("home-reveal", className?.replace(/motion-(rise|fade)/g, ""))}
-    data-rise={rise} style={{ ...style, transitionDelay: delay ? `${Math.min(delay, 0.2)}s` : "0s" }}>{children}</div>;
+    data-rise={rise} style={{ ...style, transitionDelay: `${revealDelay}s` }}>{children}</div>;
 }

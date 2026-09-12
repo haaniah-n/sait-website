@@ -59,6 +59,7 @@ export function ITEcosystem() {
   return (
     <div
       aria-label="SAIT ecosystem navigation"
+      data-ambient="hero"
       className="hero-network relative mx-auto aspect-square w-full max-w-[620px]"
     >
       {/* Outer atmosphere */}
@@ -84,9 +85,12 @@ export function ITEcosystem() {
           strokeWidth="1"
           className="network-lines"
         >
-          <path d="M110 130 L300 300 L490 130" />
-          <path d="M70 320 L300 300 L530 320" />
-          <path d="M170 500 L300 300 L430 500" />
+          <path data-connection="people" d="M300 300 L110 130" />
+          <path data-connection="events" d="M300 300 L490 130" />
+          <path data-connection="projects" d="M300 300 L70 320" />
+          <path data-connection="careers" d="M300 300 L530 320" />
+          <path data-connection="achievements" d="M300 300 L170 500" />
+          <path data-connection="alumni" d="M300 300 L430 500" />
         </g>
 
         <g fill="currentColor" className="text-accent/50">

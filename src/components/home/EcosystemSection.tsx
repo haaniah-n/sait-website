@@ -80,7 +80,7 @@ export function EcosystemSection() {
             </div>
           </MotionReveal>
 
-          <div className="destination-network grid gap-3 sm:grid-cols-2">
+          <div data-pointer="bento" className="destination-network grid gap-3 sm:grid-cols-2">
             {areas.map((area, index) => {
               const Icon = area.icon;
 

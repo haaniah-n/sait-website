@@ -102,6 +102,7 @@ export function AchievementsSection() {
 
             <Link
               href="/achievements"
+              data-pointer="magnetic"
               className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-nav-fg transition-colors hover:text-accent"
             >
               View Hall of Fame

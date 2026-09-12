@@ -77,16 +77,12 @@ export function IntroSection() {
         </div>
 
         {/* Learn / Build / Connect */}
-        <div className="community-sequence mt-20 grid md:grid-cols-3">
-          {highlights.map((item, index) => {
+        <div data-choreography="community" className="community-sequence mt-20 grid md:grid-cols-3">
+          {highlights.map((item) => {
             const Icon = item.icon;
 
             return (
-              <MotionReveal
-                key={item.number}
-                style={{ animationDelay: `${300 + index * 80}ms` }}
-                className="h-full"
-              >
+              <div key={item.number} className="community-sequence-item h-full">
                 <article className="community-step group h-full bg-surface p-7 transition-colors duration-[var(--duration-base)] hover:bg-background sm:p-8">
                   <div className="flex items-start justify-between">
                     <span className="font-mono text-xs text-muted">
@@ -106,7 +102,7 @@ export function IntroSection() {
                     {item.description}
                   </p>
                 </article>
-              </MotionReveal>
+              </div>
             );
           })}
         </div>

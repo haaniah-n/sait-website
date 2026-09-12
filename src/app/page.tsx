@@ -6,11 +6,13 @@ import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { AchievementsSection } from "@/components/home/AchievementsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
+import { HomeExperience } from "@/components/home/HomeExperience";
 import "@/components/home/home.css";
+import "@/components/home/home-interactions.css";
 
 export default function HomePage() {
   return (
-    <main className="sait-home">
+    <HomeExperience>
       <Hero />
       <IntroSection />
       <EcosystemSection />
@@ -18,6 +20,6 @@ export default function HomePage() {
       <ProjectsSection />
       <AchievementsSection />
       <FinalCTA />
-    </main>
+    </HomeExperience>
   );
 }

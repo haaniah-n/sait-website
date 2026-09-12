@@ -84,7 +84,7 @@ export function ProjectsSection() {
                   {featuredProject.description}
                 </p>
 
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-nav-fg">
+                <span data-pointer="magnetic" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-nav-fg">
                   Explore project
                   <ArrowUpRight
                     size={16}
@@ -95,7 +95,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Typographic project identity */}
-              <div className="project-identity flex min-h-52 items-center justify-center rounded-[var(--radius-lg)] border border-white/10 bg-white/4 p-8 lg:min-h-64 lg:w-72">
+              <div data-ambient="project" className="project-identity flex min-h-52 items-center justify-center rounded-[var(--radius-lg)] border border-white/10 bg-white/4 p-8 lg:min-h-64 lg:w-72">
                 <div className="text-center">
                   <p className="font-display text-6xl font-bold tracking-[-0.06em] text-nav-fg">
                     N
@@ -157,6 +157,7 @@ export function ProjectsSection() {
           <div className="mt-10 flex justify-end">
             <Link
               href="/projects"
+              data-pointer="magnetic"
               className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
             >
               Explore all projects

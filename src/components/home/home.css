@@ -26,8 +26,7 @@
 .sait-home .network-lines { color: color-mix(in srgb, var(--accent-fg) 44%, transparent); stroke-width: 1.5; }
 .sait-home .network-core { border: 1px solid var(--connection); box-shadow: 0 0 0 9px var(--background), 0 0 0 10px var(--connection), 0 24px 40px rgba(2, 7, 14, .3); }
 .sait-home .network-node > span { background: var(--surface-2); border-radius: 6px; box-shadow: 0 6px 0 rgba(2, 7, 14, .15), 0 12px 28px rgba(2, 7, 14, .25); transition: transform .3s, box-shadow .3s, border-color .3s; }
-.sait-home .network-node:is(:hover, :focus-visible) > span { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 5px 0 var(--accent-soft), 0 18px 28px rgba(2, 7, 14, .3); }
-.sait-home .hero-network:has(.network-node:is(:hover, :focus-visible)) .network-lines { color: var(--accent); }
+.sait-home .network-node:focus-visible > span { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 5px 0 var(--accent-soft), 0 18px 28px rgba(2, 7, 14, .3); }
 .sait-home .hero-network > span { animation: home-node 5s ease-in-out infinite; }
 .sait-home .hero-network > span:nth-last-child(2) { animation-delay: -2s; }
 .sait-home .home-community { border-bottom: 0; }
@@ -59,7 +58,6 @@
 .sait-home .project-identity::before, .sait-home .project-identity::after { content: ""; position: absolute; z-index: -1; width: 230px; height: 230px; border: 1px solid var(--connection); border-radius: 50%; transition: transform .6s var(--ease-out); }
 .sait-home .project-identity::before { transform: translate(-60px, -25px); }
 .sait-home .project-identity::after { transform: translate(65px, 25px); }
-.sait-home .project-feature:hover .project-identity::after { transform: translate(40px, 10px); }
 .sait-home .project-identity .text-6xl { font-size: 8rem; line-height: 1; }
 .sait-home .project-previews a { border-radius: 0; background: transparent; border-width: 1px 0 0; padding-left: 0; }
 .sait-home .project-previews h3 { font-family: var(--font-display); font-size: 1.75rem; margin-top: 2rem; }

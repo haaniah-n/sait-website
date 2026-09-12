@@ -57,12 +57,12 @@ export function Hero() {
             className="motion-rise"
           >
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/explore" variant="accent" size="lg">
+              <ButtonLink data-pointer="magnetic" href="/explore" variant="accent" size="lg">
                 Explore SAIT
                 <ArrowRight size={17} aria-hidden="true" />
               </ButtonLink>
 
-              <ButtonLink href="/events" variant="secondary" size="lg">
+              <ButtonLink data-pointer="magnetic" href="/events" variant="secondary" size="lg">
                 See what&apos;s happening
               </ButtonLink>
             </div>

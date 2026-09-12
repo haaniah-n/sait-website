@@ -1,0 +1,18 @@
+.sait-desktop-nav { position: relative; }
+.sait-nav-indicator {
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 1px;
+  transform-origin: left;
+  transform: translateX(var(--indicator-x, 0px)) scaleX(var(--indicator-scale, 0));
+  opacity: 0;
+  background: var(--accent);
+  transition: transform 300ms var(--ease-out), opacity 180ms;
+}
+.sait-desktop-nav[data-indicator-visible] .sait-nav-indicator { opacity: .85; }
+@media (prefers-reduced-motion: reduce) {
+  .sait-nav-indicator { transition: none; }
+}

@@ -57,6 +57,7 @@ export function FeaturedEvents() {
         <MotionReveal style={{ animationDelay: "180ms" }}>
           <Link
             href={`${siteRoutes.events}#next-up`}
+            data-pointer="spotlight"
             className="event-feature group mt-14 grid overflow-hidden rounded-[var(--radius-xl)] border border-line bg-surface-ink text-nav-fg shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-[var(--duration-base)] ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] lg:grid-cols-[1.25fr_0.75fr]"
           >
             <div className="relative overflow-hidden p-7 sm:p-10 lg:p-12">
@@ -128,7 +129,7 @@ export function FeaturedEvents() {
           {upcomingEvents.map((event, index) => (
             <MotionReveal
               key={event.title}
-              style={{ animationDelay: `${280 + index * 80}ms` }}
+              delay={index * 0.1}
             >
               <Link
                 href={`${siteRoutes.events}#event-${event.id}`}
@@ -171,6 +172,7 @@ export function FeaturedEvents() {
           <div className="mt-10 flex justify-end">
             <Link
               href={siteRoutes.events}
+              data-pointer="magnetic"
               className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
             >
               View all events
