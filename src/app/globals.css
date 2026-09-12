@@ -9,7 +9,7 @@
   --surface: #101918;
   --surface-2: #182320;
   --surface-ink: #0c1513;
-  --line: rgba(242, 241, 234, 0.13);
+  --line: rgba(242, 241, 234, 0.20);
   --line-strong: rgba(242, 241, 234, 0.27);
   --control-line: #718176;
 
@@ -87,11 +87,11 @@
   color-scheme: light;
   --background: #f4f1e8;
   --foreground: #17231e;
-  --muted: #5e685e;
+  --muted: #535e54;
   --surface: #f7f5ee;
   --surface-2: #e9e9dd;
   --surface-ink: #e5e8db;
-  --line: rgba(23, 35, 30, .16);
+  --line: rgba(23, 35, 30, .22);
   --line-strong: rgba(23, 35, 30, .3);
   --control-line: #798173;
   --accent: #42651e;

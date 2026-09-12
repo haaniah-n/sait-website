@@ -109,7 +109,7 @@ export function EcosystemSection() {
                           {area.title}
                         </h3>
 
-                        <p className="mt-2 max-w-xs text-sm leading-6 text-muted">
+                        <p className="mt-2 max-w-xs text-sm leading-6 text-foreground/85">
                           {area.description}
                         </p>
                       </div>

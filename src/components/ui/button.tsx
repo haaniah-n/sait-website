@@ -10,7 +10,7 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-signal text-on-accent hover:bg-signal-hover",
   accent: "bg-signal text-on-accent hover:bg-signal-hover",
-  secondary: "bg-transparent text-foreground border border-line-strong hover:border-line-strong hover:bg-surface-2",
+  secondary: "bg-transparent text-foreground border border-[var(--control-line)] hover:border-[var(--control-line)] hover:bg-surface-2",
   ghost: "bg-transparent text-foreground hover:bg-surface-2",
   nav: "bg-transparent text-nav-fg hover:bg-surface-2",
 };

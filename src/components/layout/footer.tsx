@@ -44,7 +44,7 @@ export function Footer() {
                 href={site.locationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-fit items-center gap-2 text-sm text-nav-muted transition-colors hover:text-signal"
+                className="flex w-fit items-center gap-2 text-sm text-nav-muted transition-colors hover:text-accent-fg"
               >
                 <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {site.location}

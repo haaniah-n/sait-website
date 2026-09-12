@@ -24,7 +24,14 @@
   object-position: right center;
 }
 .hero-campus::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, var(--background) 10%, color-mix(in srgb, var(--background) 94%, transparent) 30%, transparent 70%), linear-gradient(to top, var(--background), transparent 16%); }
-.home-hero .node-phrase { color: color-mix(in srgb, var(--foreground) 65%, var(--muted)); }
+.home-hero .node-phrase {
+  color: color-mix(in srgb, var(--foreground) 92%, var(--muted));
+  font-weight: 500;
+}
+.home-hero .node-label {
+  color: var(--foreground);
+  font-weight: 700;
+}
 .hero-campus-light, [data-theme="light"] .hero-campus-dark { display: none; }
 [data-theme="light"] .hero-campus-light { display: block; }
 .hero-composition { display: grid; grid-template-columns: .95fr 1.05fr; gap: 2rem; align-items: center; padding-block: 2rem 1.5rem; }
@@ -241,7 +248,7 @@
 .sait-home .destination-node { border-width: 1px 0 0; border-radius: 0; background: transparent; padding: 1.5rem 0 2rem; box-shadow: none; }
 .sait-home .destination-node:hover { transform: none; background: transparent; box-shadow: none; border-color: var(--accent); }
 .sait-home .destination-node > .mt-12 { margin-top: 1.5rem; }
-.sait-home .destination-node h3 { font: 500 1.5rem var(--font-display); }
+.sait-home .destination-node h3 { font: 600 1.5rem var(--font-display); }
 .sait-home .event-feature { border-radius: 2px; box-shadow: none; border-color: var(--line-strong); }
 .sait-home .event-feature:hover { transform: none; box-shadow: none; border-color: var(--accent); }
 .sait-home .event-details { background: var(--surface-2); border-left-style: dashed; position: relative; }
@@ -330,10 +337,10 @@
   background:
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--background) 24%, transparent) 0%,
-      color-mix(in srgb, var(--background) 12%, transparent) 35%,
-      color-mix(in srgb, var(--background) 8%, transparent) 68%,
-      color-mix(in srgb, var(--background) 30%, transparent) 90%,
+      color-mix(in srgb, var(--background) 88%, transparent) 0%,
+      color-mix(in srgb, var(--background) 88%, transparent) 35%,
+      color-mix(in srgb, var(--background) 82%, transparent) 68%,
+      color-mix(in srgb, var(--background) 82%, transparent) 90%,
       var(--background) 100%
     ),
     linear-gradient(
