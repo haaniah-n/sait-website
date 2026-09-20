@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SaitLogo } from "@/components/ui/sait-logo";
 import { ThemeToggle } from "./theme-toggle";
 import { Bell, Menu, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
@@ -97,15 +98,13 @@ export function Navbar() {
       ref={headerRef}
       className="sticky top-0 z-50 border-b border-line bg-nav text-nav-fg"
     >
-      <Container className="flex h-16 items-center justify-between gap-2 sm:gap-4">
+      <Container className={cn("flex h-16 items-center justify-between gap-2 sm:gap-4", pathname === "/" && "max-w-7xl sm:px-8 lg:px-10")}>
         {/* Brand */}
         <Link
           href={siteRoutes.home}
           className="flex min-w-0 items-center gap-3 rounded-[var(--radius-sm)]"
         >
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-[var(--radius-md)] border border-line-strong bg-surface-2 font-display text-sm font-bold tracking-tight">
-            SA
-          </span>
+          <SaitLogo className="h-9 w-9 sm:h-10 sm:w-10" />
 
           <span className="min-w-0">
             <span className="block text-sm font-semibold tracking-wide">

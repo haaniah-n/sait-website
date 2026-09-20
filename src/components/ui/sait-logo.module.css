@@ -1,0 +1,10 @@
+.logo {
+  position: relative;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}
+
+.logo img { object-fit: contain; }
+.light { display: none; }
+:global([data-theme="light"]) .dark { display: none; }
+:global([data-theme="light"]) .light { display: block; }

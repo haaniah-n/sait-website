@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SaitLogo } from "@/components/ui/sait-logo";
 import {
   Award,
   BriefcaseBusiness,
@@ -12,7 +13,6 @@ const nodes = [
   {
     id: "people",
     label: "People",
-    phrase: "Meet the minds behind SAIT",
     icon: Users,
     x: 150,
     y: 108,
@@ -20,7 +20,6 @@ const nodes = [
   {
     id: "events",
     label: "Events",
-    phrase: "Workshops, talks and more",
     icon: CalendarDays,
     x: 450,
     y: 108,
@@ -28,7 +27,6 @@ const nodes = [
   {
     id: "projects",
     label: "Projects",
-    phrase: "From ideas to real impact",
     icon: FolderKanban,
     x: 72,
     y: 300,
@@ -36,7 +34,6 @@ const nodes = [
   {
     id: "careers",
     label: "Careers",
-    phrase: "Explore opportunities",
     icon: BriefcaseBusiness,
     x: 528,
     y: 300,
@@ -44,7 +41,6 @@ const nodes = [
   {
     id: "achievements",
     label: "Achievements",
-    phrase: "Celebrate milestones",
     icon: Award,
     x: 150,
     y: 492,
@@ -52,7 +48,6 @@ const nodes = [
   {
     id: "alumni",
     label: "Alumni",
-    phrase: "Stay connected",
     icon: GraduationCap,
     x: 450,
     y: 492,
@@ -105,11 +100,10 @@ export function ITEcosystem() {
       ))}
 
       <div className="network-core">
-        <span>SAIT</span>
-        <small>CUSAT / IT</small>
+        <SaitLogo className="network-logo" alt="SAIT — CUSAT / IT" />
       </div>
 
-      {nodes.map(({ id, label, phrase, icon: Icon }) => (
+      {nodes.map(({ id, label, icon: Icon }) => (
         <Link
           key={id}
           href={`/${id}`}
@@ -119,13 +113,11 @@ export function ITEcosystem() {
             <Icon size={21} strokeWidth={1.5} aria-hidden="true" />
           </span>
 
-          <span className="node-label">{label}</span>
-
-          <span className="node-phrase">{phrase}</span>
+          <span className="node-copy">
+            <span className="node-label">{label}</span>
+          </span>
         </Link>
       ))}
-
-      <span className="orbit-signal" aria-hidden="true" />
     </nav>
   );
 }

@@ -58,29 +58,21 @@ export function Hero() {
               <ArrowRight size={17} aria-hidden="true" />
             </ButtonLink>
 
-            <ButtonLink href="/events" variant="secondary" size="lg">
+            <ButtonLink
+              href="/events"
+              variant="secondary"
+              size="lg"
+              className="hero-secondary"
+            >
               See what&apos;s happening
             </ButtonLink>
           </div>
 
           <p className="hero-annotation">same students, different tomorrows.</p>
-
-          <p className="mt-4 max-w-md text-xs leading-6 text-muted">
-            People. Projects. Events. Achievements. Careers. Alumni.
-          </p>
         </div>
 
         <div className="hero-orbit-panel">
-          <div className="hero-orbit-caption">
-            <span>SAIT / THE ECOSYSTEM</span>
-            <span aria-hidden="true">06 CONNECTIONS</span>
-          </div>
-
           <ITEcosystem />
-
-          <p className="hero-orbit-footer">
-            People / Ideas / Technology / Impact
-          </p>
         </div>
       </div>
 
