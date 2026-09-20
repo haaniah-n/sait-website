@@ -238,6 +238,14 @@
 }
 .hero-scroll { margin: 0 auto; max-width: 80rem; min-height: 48px; padding: .5rem 1.25rem; display: flex; align-items: center; gap: .75rem; font: 11px var(--font-mono); color: color-mix(in srgb, var(--foreground) 80%, var(--muted)); }
 .hero-scroll > span { flex: 1; height: 1px; background: var(--line); margin-left: 1rem; }
+/* Low-opacity corner washes leave the editorial center on its existing surface. */
+.sait-home .home-community {
+  --community-wash: 5%;
+  background-image:
+    radial-gradient(ellipse 65% 70% at 0% 0%, color-mix(in srgb, var(--accent) var(--community-wash), transparent), transparent 75%),
+    radial-gradient(ellipse 60% 65% at 100% 100%, color-mix(in srgb, var(--accent) var(--community-wash), transparent), transparent 75%);
+}
+[data-theme="light"] .sait-home .home-community { --community-wash: 4%; }
 .sait-home .community-sequence { gap: 2rem; position: relative; }
 .sait-home .community-step { position: relative; border-top: 1px solid var(--connection); padding: 1.7rem 0 0; background: transparent; }
 .sait-home .community-step::before { content: ""; position: absolute; top: -3px; left: 0; height: 5px; width: 5px; border-radius: 50%; background: var(--accent); }
@@ -294,7 +302,18 @@
   .hero-scroll { padding-inline: 2.5rem; }
 }
 @media (min-width: 768px) {
-  .sait-home .community-sequence { gap: 3rem; }
+  .sait-home .community-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 31%); gap: clamp(2rem, 4vw, 4rem); align-items: start; }
+  .sait-home .community-intro { min-width: 0; }
+  .sait-home .community-intro h2 { max-width: 15ch; }
+  .sait-home .community-sequence { margin-top: 2.5rem; gap: 2.5rem; min-width: 0; }
+  .sait-home .community-sequence::before { content: ""; position: absolute; left: 0; top: 1rem; bottom: 0; width: 1px; background: var(--connection); }
+  .sait-home .community-step { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) 2.25rem; column-gap: .75rem; align-items: center; border-top: 0; padding: 0 0 0 1.5rem; }
+  .sait-home .community-step::before { top: 1rem; left: -2px; }
+  .sait-home .community-step-meta { display: contents; }
+  .sait-home .community-step-meta > :first-child { grid-column: 1; grid-row: 1; }
+  .sait-home .community-step-meta > :last-child { grid-column: 3; grid-row: 1; }
+  .sait-home .community-step h3 { grid-column: 2; grid-row: 1; margin-top: 0; font-size: clamp(1.5rem, 2.5vw, 2.25rem); }
+  .sait-home .community-step p { grid-column: 2 / -1; grid-row: 2; max-width: 38ch; }
   .sait-home .project-previews { grid-template-columns: 1.2fr 1fr; gap: 3rem; }
   .sait-home .project-previews > :nth-child(2) { margin-top: 2.5rem; }
 }

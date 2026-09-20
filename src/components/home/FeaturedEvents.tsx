@@ -1,185 +1,80 @@
 import Link from "next/link";
-import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
-import { MotionReveal } from "./HomeReveal";
-import {
-  nextEvent,
-  upcomingEvents as scheduledEvents,
-  eventCategoryLabels,
-  formatEventDate,
-  formatEventTime,
-} from "@/data/events";
-import { siteRoutes } from "@/lib/routes";
+import Image from "next/image";
+import { ArrowUpRight, CalendarDays, Clock3, MapPin } from "lucide-react";
+import { EventPulse } from "@/components/events/event-interactions";
+import { nextEvent, upcomingEvents, pastEvents, eventCategoryLabels, formatEventDate, formatEventTime } from "@/data/events";
+import "@/app/events/events.css";
+import "./home-events.css";
 
-const featuredEvent = {
-  category: `Next up · ${eventCategoryLabels[nextEvent.kind]}`,
-  title: nextEvent.title,
-  description: nextEvent.summary,
-  date: formatEventDate(nextEvent.date),
-  time: `${formatEventTime(nextEvent.startTime)} IST`,
-  venue: nextEvent.location,
-};
-
-const upcomingEvents = scheduledEvents.slice(1, 4).map((event) => ({
-  id: event.id,
-  title: event.title,
-  category: eventCategoryLabels[event.kind],
-  date: formatEventDate(event.date),
-  venue: event.location,
-}));
+const date = new Date(`${nextEvent.date}T00:00:00Z`);
+const longDate = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(date);
+const month = new Intl.DateTimeFormat("en-GB", { month: "short", timeZone: "UTC" }).format(date);
 
 export function FeaturedEvents() {
-  return (
-    <section className="home-events border-b border-line bg-surface">
-      <div className="mx-auto max-w-7xl px-5 pt-14 pb-12 sm:px-8 sm:pt-16 sm:pb-14 lg:px-10 lg:pt-20 lg:pb-16">
-        {/* Header */}
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <MotionReveal>
-            <div>
-              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
-                03 / Events / What&apos;s happening
-              </p>
-
-              <div className="mt-5 h-px w-16 bg-accent" />
-            </div>
-          </MotionReveal>
-
-          <MotionReveal style={{ animationDelay: "100ms" }}>
-            <div>
-              <h2 className="text-section max-w-3xl text-foreground">
-                Ideas become <span className="text-accent">experiences.</span>
-              </h2>
-
-              <p className="mt-5 max-w-2xl text-base leading-7 text-muted">
-                Discover workshops, competitions, meetups, and experiences
-                happening across the SAIT community.
-              </p>
-            </div>
-          </MotionReveal>
+  return <section className="home-events home-event-pulse border-b border-line bg-surface" aria-labelledby="home-events-heading">
+    <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
+      <div className="home-events-intro">
+        <span className="events-outline" aria-hidden="true">EVENTS</span>
+        <div>
+          <p className="events-eyebrow">03 / Events / What&apos;s happening</p>
+          <span className="events-short-rule" aria-hidden="true" />
+          <h2 id="home-events-heading">Ideas become<br /><span>experiences.</span></h2>
         </div>
-
-        {/* Featured event */}
-        <MotionReveal style={{ animationDelay: "180ms" }}>
-          <Link
-            href={`${siteRoutes.events}#next-up`}
-            className="event-feature group mt-14 grid overflow-hidden border bg-surface-ink text-nav-fg transition-colors lg:grid-cols-[1.25fr_0.75fr]"
-          >
-            <div className="relative overflow-hidden p-7 sm:p-10 lg:p-12">
-              <div className="relative">
-                <span className="inline-flex rounded-full border border-line bg-surface-2 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
-                  {featuredEvent.category}
-                </span>
-
-                <h3 className="mt-8 max-w-xl font-display text-3xl font-bold tracking-[-0.04em] sm:text-4xl lg:text-5xl">
-                  {featuredEvent.title}
-                </h3>
-
-                <p className="mt-5 max-w-xl text-sm leading-7 text-nav-muted sm:text-base">
-                  {featuredEvent.description}
-                </p>
-
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-nav-fg">
-                  View event
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform duration-[var(--duration-base)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    aria-hidden="true"
-                  />
-                </span>
-              </div>
-            </div>
-
-            <div className="event-details border-t border-line bg-surface-2 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
-              <div className="grid gap-7">
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
-                    Date
-                  </p>
-                  <p className="event-date mt-2 text-lg font-semibold">
-                    {featuredEvent.date}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
-                    Time
-                  </p>
-                  <p className="mt-2 text-lg font-semibold">
-                    {featuredEvent.time}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
-                    Venue
-                  </p>
-                  <p className="mt-2 flex items-center gap-2 text-lg font-semibold">
-                    <MapPin
-                      size={17}
-                      className="text-accent"
-                      aria-hidden="true"
-                    />
-                    {featuredEvent.venue}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </MotionReveal>
-
-        {/* Upcoming events */}
-        <div className="mt-5 grid gap-3 md:grid-cols-3">
-          {upcomingEvents.map((event, index) => (
-            <MotionReveal key={event.title} delay={index * 0.1}>
-              <Link
-                href={`${siteRoutes.events}#event-${event.id}`}
-                className="event-preview group block border transition-colors"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
-                    {event.category}
-                  </span>
-
-                  <ArrowUpRight
-                    size={16}
-                    className="text-muted transition-[transform,color] duration-[var(--duration-base)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <h3 className="mt-8 text-base font-semibold text-foreground">
-                  {event.title}
-                </h3>
-
-                <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted">
-                  <span className="inline-flex items-center gap-1.5">
-                    <CalendarDays size={13} aria-hidden="true" />
-                    {event.date}
-                  </span>
-
-                  <span className="inline-flex items-center gap-1.5">
-                    <MapPin size={13} aria-hidden="true" />
-                    {event.venue}
-                  </span>
-                </div>
-              </Link>
-            </MotionReveal>
-          ))}
-        </div>
-
-        {/* All events */}
-        <MotionReveal style={{ animationDelay: "540ms" }}>
-          <div className="mt-6 flex justify-end">
-            <Link
-              href={siteRoutes.events}
-              data-pointer="magnetic"
-              className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
-            >
-              View all events
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-        </MotionReveal>
+        <p className="events-intro">Discover workshops, competitions, meetups, and experiences happening across the SAIT community.</p>
       </div>
-    </section>
-  );
+      <EventPulse />
+      <article className="event-poster home-event-poster" aria-labelledby="home-featured-event">
+        <div className="event-poster-photo" aria-hidden="true">
+          <Image src="/images/sait-hero-campus-dark.png" alt="" fill sizes="(max-width: 767px) 100vw, 65vw" className="poster-photo-dark" />
+          <Image src="/images/sait-hero-campus-light.png" alt="" fill sizes="(max-width: 767px) 100vw, 65vw" className="poster-photo-light" />
+        </div>
+        <div className="poster-heading">
+          <p className="poster-tag">Next up · {eventCategoryLabels[nextEvent.kind]}</p>
+          <h3 id="home-featured-event">SAIT<br />{nextEvent.title.replace(/^SAIT\s+/, "")}</h3>
+        </div>
+        <time className="poster-date" dateTime={nextEvent.date} aria-label={longDate}>
+          <span className="poster-day" aria-hidden="true">{date.getUTCDate()}</span>
+          <span className="poster-month" aria-hidden="true">{month}</span>
+          <span className="poster-year" aria-hidden="true">{date.getUTCFullYear()}</span>
+        </time>
+        <div className="poster-body">
+          <p>{nextEvent.summary}</p>
+          <div className="poster-metadata">
+            <span className="poster-full-date"><CalendarDays size={16} aria-hidden="true" />{longDate}</span>
+            <span><Clock3 size={16} aria-hidden="true" />{formatEventTime(nextEvent.startTime)} IST</span>
+            <span><MapPin size={16} aria-hidden="true" />{nextEvent.location}</span>
+          </div>
+          <Link className="poster-cta" href="/events#next-up">View event <ArrowUpRight size={17} aria-hidden="true" /></Link>
+        </div>
+        <div className="poster-aside" aria-hidden="true"><p>Ideas<br />People<br />Technology<br />Impact</p><span /></div>
+      </article>
+      <div className="home-events-upcoming">
+        <div className="events-section-heading"><h3>Upcoming Events</h3><span className="upcoming-count">03 upcoming</span></div>
+        <ol className="home-events-timeline">
+          {upcomingEvents.slice(1, 4).map(event => <li key={event.id}>
+            <Link href={`/events#event-${event.id}`} className="home-timeline-entry">
+              <time dateTime={event.date}><strong>{event.date.slice(-2)}</strong><span>SEP</span></time>
+              <span className="home-timeline-marker" aria-hidden="true"><i /></span>
+              <h4>{event.title}</h4>
+              <span className="timeline-category">{eventCategoryLabels[event.kind]}</span>
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </Link>
+          </li>)}
+        </ol>
+      </div>
+      <div className="home-events-past">
+        <div className="home-past-heading"><h3>Past / Recent moments</h3><Link href="/events#archive">Explore past events <ArrowUpRight size={15} aria-hidden="true" /></Link></div>
+        <div className="home-moments">
+          {pastEvents.slice(0, 2).map((event,index) => <Link href="/events#archive" key={event.id} className="home-moment">
+            <span className="home-moment-number" aria-hidden="true">{String(index+1).padStart(2,"0")}</span>
+            <span className="timeline-category">{eventCategoryLabels[event.kind]}</span>
+            <h4>{event.title}</h4>
+            <time dateTime={event.date}>{formatEventDate(event.date)}</time>
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>)}
+        </div>
+      </div>
+      <div className="home-events-all"><Link href="/events">Explore all events <ArrowUpRight size={17} aria-hidden="true" /></Link></div>
+    </div>
+  </section>;
 }

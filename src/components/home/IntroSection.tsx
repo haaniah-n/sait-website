@@ -37,35 +37,20 @@ export function IntroSection() {
   return (
     <section id="community" className="home-community scroll-mt-20 border-b border-line bg-surface">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <MotionReveal>
-            <div>
+        <div className="community-layout">
+          <div className="community-intro">
+            <MotionReveal>
               <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
                 01 / SAIT / The community
               </p>
-
               <div className="mt-5 h-px w-16 bg-accent" />
-            </div>
-          </MotionReveal>
-
-          <div>
-            <MotionReveal style={{ animationDelay: "80ms" }}>
-              <h2 className="text-section max-w-3xl text-foreground">
-                A place to{" "}
-                <span className="text-accent">
-                  learn, build, and get involved.
-                </span>
+              <h2 className="text-section mt-12 max-w-3xl text-foreground">
+                Built by students. <span className="text-accent">Shaped by community.</span>
               </h2>
-            </MotionReveal>
-
-            <MotionReveal style={{ animationDelay: "160ms" }}>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-                Find opportunities to learn new skills, work on ideas, take
-                part in experiences, and connect with the wider IT community.
+                A space to exchange ideas, develop skills, create meaningful work,
+                and connect with the wider IT community.
               </p>
-            </MotionReveal>
-
-            <MotionReveal style={{ animationDelay: "240ms" }}>
               <div className="mt-8">
                 <ButtonLink href="/explore" variant="secondary">
                   Explore the community
@@ -74,42 +59,32 @@ export function IntroSection() {
               </div>
             </MotionReveal>
           </div>
-        </div>
 
-        {/* Learn / Build / Connect */}
-        <div data-choreography="community" className="community-sequence mt-20 grid md:grid-cols-3">
-          {highlights.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div key={item.number} className="community-sequence-item h-full">
-                <article className="community-step group h-full bg-surface p-7 transition-colors duration-[var(--duration-base)] hover:bg-background sm:p-8">
-                  <div className="flex items-start justify-between">
-                    <span className="font-mono text-xs text-muted">
-                      {item.number}
-                    </span>
-
-                    <span className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-accent-soft text-accent transition-transform duration-[var(--duration-base)] group-hover:scale-105">
-                      <Icon size={17} aria-hidden="true" />
-                    </span>
-                  </div>
-
-                  <h3 className="mt-12 text-card font-semibold text-foreground">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-muted">
-                    {item.description}
-                  </p>
-                </article>
-              </div>
-            );
-          })}
+          {/* Learn / Build / Connect */}
+          <div data-choreography="community" className="community-sequence mt-20 grid">
+            {highlights.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.number} className="community-sequence-item h-full">
+                  <article className="community-step group h-full">
+                    <div className="community-step-meta flex items-start justify-between">
+                      <span className="font-mono text-xs text-muted">{item.number}</span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-accent-soft text-accent transition-transform duration-[var(--duration-base)] group-hover:scale-105">
+                        <Icon size={17} aria-hidden="true" />
+                      </span>
+                    </div>
+                    <h3 className="mt-12 text-card font-semibold text-foreground">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-muted">{item.description}</p>
+                  </article>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Stats */}
         <MotionReveal style={{ animationDelay: "500ms" }}>
-          <div className="mt-16 grid grid-cols-2 divide-x divide-y divide-line border-y border-line sm:grid-cols-4 sm:divide-y-0">
+          <div className="mt-16 grid grid-cols-2 divide-x divide-y divide-line border-y border-line sm:grid-cols-4 sm:divide-y-0 md:mt-6">
             {stats.map((stat) => (
               <div key={stat.label} className="px-5 py-7 first:pl-0 sm:px-7">
                 <p className="font-display text-3xl font-bold tracking-[-0.04em] text-foreground sm:text-4xl">
