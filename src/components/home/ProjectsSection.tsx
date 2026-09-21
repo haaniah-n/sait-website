@@ -1,166 +1,21 @@
 import Link from "next/link";
-import { ArrowUpRight, Code2, Cpu, Globe2 } from "lucide-react";
-import { MotionReveal } from "./HomeReveal";
-import { featuredProjects } from "@/data/projects";
-
-const featuredProject = {
-  ...featuredProjects[0],
-  description: featuredProjects[0].summary,
-  icon: Cpu,
-};
-
-const projects = featuredProjects.slice(1).map((project) => ({
-  ...project,
-  description: project.summary,
-  icon: project.id === "campusflow" ? Globe2 : Code2,
-}));
+import { ArrowUpRight } from "lucide-react";
+import { ProjectCarousel } from "./ProjectCarousel";
+import "./home-projects.css";
 
 export function ProjectsSection() {
-  return (
-    <section className="home-projects border-b border-line bg-background">
-      <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8 sm:pt-20 sm:pb-12 lg:px-10 lg:pt-24 lg:pb-14">
-        {/* Header */}
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <MotionReveal>
-            <div>
-              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
-                04 / Projects / Ideas in action
-              </p>
-
-              <div className="mt-5 h-px w-16 bg-accent" />
-            </div>
-          </MotionReveal>
-
-          <MotionReveal style={{ animationDelay: "100ms" }}>
-            <div>
-              <h2 className="text-section max-w-3xl text-foreground">
-                From ideas to{" "}
-                <span className="text-accent">things that work.</span>
-              </h2>
-
-              <p className="mt-5 max-w-2xl text-base leading-7 text-muted">
-                Explore a glimpse of the ideas, experiments, and digital
-                experiences students can bring to life.
-              </p>
-            </div>
-          </MotionReveal>
-        </div>
-
-        {/* Featured project */}
-        <MotionReveal style={{ animationDelay: "180ms" }}>
-          <Link
-            href="/projects"
-            className="project-feature group relative mt-14 block overflow-hidden border text-nav-fg transition-colors"
-          >
-            <div className="relative grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_auto] lg:p-10">
-              <div>
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-md)] bg-accent-soft text-accent">
-                    <featuredProject.icon size={19} aria-hidden="true" />
-                  </span>
-
-                  <span className="font-mono text-xs uppercase tracking-[0.16em] text-nav-muted">
-                    Featured project
-                  </span>
-                </div>
-
-                <h3 className="mt-8 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
-                  {featuredProject.title}
-                </h3>
-
-                <p className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-accent">
-                  {featuredProject.category}
-                </p>
-
-                <p className="mt-5 max-w-xl text-sm leading-7 text-nav-muted sm:text-base">
-                  {featuredProject.description}
-                </p>
-
-                <span
-                  data-pointer="magnetic"
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-nav-fg"
-                >
-                  Explore project
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform duration-[var(--duration-base)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    aria-hidden="true"
-                  />
-                </span>
-              </div>
-
-              {/* Typographic project identity */}
-              <div className="project-identity flex min-h-52 items-center justify-center rounded-[var(--radius-lg)] border border-line bg-surface-2 p-8 lg:min-h-64 lg:w-72">
-                <div className="text-center">
-                  <p className="font-display text-6xl font-bold tracking-[-0.06em] text-nav-fg">
-                    N
-                  </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-nav-muted">
-                    AI / Learning
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </MotionReveal>
-
-        {/* Smaller projects */}
-        <div className="project-previews mt-2 grid gap-3 md:grid-cols-2">
-          {projects.map((project, index) => {
-            const Icon = project.icon;
-
-            return (
-              <MotionReveal
-                key={project.title}
-                style={{ animationDelay: `${280 + index * 80}ms` }}
-              >
-                <Link
-                  href="/projects"
-                  className="group block border border-line p-6 transition-colors hover:border-accent/30 sm:p-7"
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-md)] bg-accent-soft text-accent">
-                      <Icon size={18} aria-hidden="true" />
-                    </span>
-
-                    <ArrowUpRight
-                      size={17}
-                      className="text-muted transition-[transform,color] duration-[var(--duration-base)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <h3 className="mt-10 text-card font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-accent">
-                    {project.category}
-                  </p>
-
-                  <p className="mt-4 max-w-md text-sm leading-6 text-muted">
-                    {project.description}
-                  </p>
-                </Link>
-              </MotionReveal>
-            );
-          })}
-        </div>
-
-        {/* View all */}
-        <MotionReveal style={{ animationDelay: "460ms" }}>
-          <div className="mt-5 flex justify-end">
-            <Link
-              href="/projects"
-              data-pointer="magnetic"
-              className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
-            >
-              Explore all projects
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-        </MotionReveal>
+  return <section className="home-projects project-showcase border-b border-line bg-background" aria-labelledby="home-projects-heading">
+    <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8 sm:pt-20 sm:pb-12 lg:px-10 lg:pt-24 lg:pb-14">
+      <header className="showcase-intro">
+        <p className="showcase-eyebrow">04 / Projects / Ideas in action</p>
+        <h2 id="home-projects-heading">From ideas to<br /><span>things that work.</span></h2>
+        <p className="showcase-support">Explore a glimpse of the ideas, experiments, and digital experiences students can bring to life.</p>
+      </header>
+      <ProjectCarousel />
+      <div className="showcase-ending">
+        <p>More ideas are always in progress.</p>
+        <Link href="/projects">Explore all projects <ArrowUpRight size={18} aria-hidden="true" /></Link>
       </div>
-    </section>
-  );
+    </div>
+  </section>;
 }

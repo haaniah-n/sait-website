@@ -1,43 +1,37 @@
 import Link from "next/link";
-import { ArrowRight, CircleDot } from "lucide-react";
-import { MotionReveal } from "./HomeReveal";
+import { ArrowRight } from "lucide-react";
+import "./home-final.css";
 
 export function FinalCTA() {
   return (
-    <section className="home-final border-b border-line bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
-        <MotionReveal>
-          <div data-choreography="converge" className="final-panel relative overflow-hidden border border-line px-6 text-center sm:px-10">
-            <div className="final-connections" aria-hidden="true"><span /><span /><span /></div>
-            <div className="relative">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
-                <CircleDot size={17} aria-hidden="true" />
-              </div>
-
-              <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-accent">
-                Your next chapter
-              </p>
-
-              <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl font-bold tracking-[-0.04em] text-nav-fg sm:text-4xl lg:text-5xl">
-                There&apos;s more to explore.
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-nav-muted sm:text-base">
-                Discover the people, projects, events, and opportunities that
-                make the SAIT community what it is.
-              </p>
-
-              <Link
-                href="/explore"
-                data-pointer="magnetic"
-                className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-[var(--radius-md)] bg-signal px-5 text-sm font-medium text-on-accent transition-[transform,background-color] duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:bg-signal-hover"
-              >
-                Explore SAIT
-                <ArrowRight size={17} aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </MotionReveal>
+    <section className="home-final chapter-cta" aria-labelledby="chapter-heading">
+      <svg className="chapter-orbit" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="chapter-horizon-bloom">
+            <stop offset="0" stopColor="var(--accent)" stopOpacity=".2" />
+            <stop offset=".45" stopColor="var(--accent)" stopOpacity=".08" />
+            <stop offset="1" stopColor="var(--accent)" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="chapter-horizon-light" gradientUnits="userSpaceOnUse" x1="340" y1="0" x2="1100" y2="0">
+            <stop offset="0" stopColor="var(--accent)" stopOpacity="0" />
+            <stop offset=".5" stopColor="var(--accent)" stopOpacity=".8" />
+            <stop offset="1" stopColor="var(--accent)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <circle className="chapter-orbit-line" cx="720" cy="520" r="440" />
+        <circle className="chapter-orbit-node" cx="347" cy="286" r="3.5" />
+        <circle className="chapter-orbit-node" cx="1040" cy="218" r="3.5" />
+        <ellipse className="chapter-horizon-bloom" cx="720" cy="653" rx="380" ry="65" fill="url(#chapter-horizon-bloom)" />
+        <path className="chapter-horizon" d="M-100 786 Q720 560 1540 786" />
+        <path className="chapter-horizon-highlight" d="M-100 786 Q720 560 1540 786" fill="none" stroke="url(#chapter-horizon-light)" strokeWidth="1.5" />
+      </svg>
+      <div className="chapter-content">
+        <div className="chapter-signal" aria-hidden="true"><span /></div>
+        <p className="chapter-eyebrow">YOUR NEXT CHAPTER</p>
+        <h2 id="chapter-heading">Now it&apos;s<br /><span>your</span> turn.</h2>
+        <p className="chapter-copy">Join the people learning, building, creating and contributing across SAIT.</p>
+        <Link href="/contact" className="chapter-button">Get Involved <ArrowRight size={19} aria-hidden="true" /></Link>
+        <p className="chapter-values"><span>LEARN / BUILD /</span>{" "}<span>CONNECT / CONTRIBUTE</span></p>
       </div>
     </section>
   );
