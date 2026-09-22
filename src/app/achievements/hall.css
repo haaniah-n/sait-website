@@ -1,0 +1,977 @@
+/* Hall of Fame is scoped to this route; shared navigation and theme tokens are unchanged. */
+.fame-hall {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: clip;
+}
+
+.fame-hall section {
+  scroll-margin-top: 5rem;
+}
+
+.fame-hall .fame-label,
+.fame-hall .fame-kicker,
+.fame-hall .fame-index {
+  font: 500 10px/1.7 var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fame-hall .fame-label {
+  color: var(--accent);
+}
+
+.fame-hall .fame-kicker,
+.fame-hall .fame-index {
+  color: var(--muted);
+}
+
+.fame-hall h2 {
+  margin-top: 0.65rem;
+  font: 500 clamp(1.65rem, 2.7vw, 2.35rem) / 1.12 var(--font-display);
+  letter-spacing: -0.045em;
+}
+
+.fame-hall a:focus-visible,
+.fame-hall article:focus-visible,
+.fame-hall .fame-tile:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.fame-hall .fame-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.fame-hall .fame-hero-copy {
+  position: relative;
+  width: 54%;
+  padding-block: clamp(3.5rem, 6vw, 6rem);
+}
+
+.fame-hall h1 {
+  margin-top: 0.8rem;
+  max-width: 12ch;
+  font: 600 clamp(2.4rem, 4.2vw, 3.85rem) / 1.06 var(--font-display);
+  letter-spacing: -0.045em;
+}
+
+.fame-hall h1 span {
+  color: var(--accent);
+}
+
+.fame-hall .fame-hero-description {
+  max-width: 44ch;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.fame-hall .fame-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  align-items: center;
+  margin-top: 1.35rem;
+}
+
+.fame-hall .fame-hero-actions a {
+  display: inline-flex;
+  gap: 0.65rem;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.fame-hall .fame-primary-link {
+  background: var(--signal);
+  color: var(--on-accent);
+  padding: 0.75rem 1.1rem;
+  border-radius: var(--radius-md);
+}
+
+.fame-hall .fame-primary-link:hover,
+.fame-hall .fame-primary-link:focus-visible {
+  background: var(--signal-hover);
+}
+
+.fame-hall .fame-prototype {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.6;
+}
+
+.fame-hall .fame-hero-visual {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 42%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fame-hall .fame-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: 6%;
+  top: 8%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 42% 38%,
+    color-mix(in srgb, var(--accent) 22%, transparent),
+    transparent 62%
+  );
+}
+
+.fame-hall .fame-orbit {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  border-radius: 50%;
+}
+
+.fame-hall .fame-orbit-1 {
+  width: 420px;
+  height: 420px;
+  right: 8%;
+  top: 14%;
+}
+
+.fame-hall .fame-orbit-2 {
+  width: 560px;
+  height: 220px;
+  right: -4%;
+  top: 28%;
+  transform: rotate(-18deg);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.fame-hall .fame-orbit-3 {
+  width: 78%;
+  height: 1px;
+  right: 0;
+  top: 72%;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.28;
+}
+
+.fame-hall .fame-laurels {
+  position: absolute;
+  width: min(420px, 72%);
+  height: auto;
+  right: 8%;
+  top: 10%;
+  stroke: color-mix(in srgb, var(--accent) 55%, transparent);
+  fill: none;
+  stroke-width: 1.1;
+}
+
+.fame-hall .fame-trophy {
+  position: absolute;
+  right: 16%;
+  top: 18%;
+  width: 210px;
+  height: 280px;
+}
+
+.fame-hall .fame-trophy-cap,
+.fame-hall .fame-trophy-body,
+.fame-hall .fame-trophy-stem,
+.fame-hall .fame-trophy-base {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fame-hall .fame-trophy-cap {
+  top: 8%;
+  width: 72%;
+  height: 10%;
+  clip-path: polygon(8% 100%, 18% 0, 82% 0, 92% 100%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 55%, transparent), color-mix(in srgb, var(--accent) 18%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.fame-hall .fame-trophy-body {
+  top: 16%;
+  width: 78%;
+  height: 46%;
+  clip-path: polygon(10% 0, 90% 0, 78% 100%, 22% 100%);
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--accent) 28%, transparent) 0 28%, transparent 48%),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 16%, var(--surface-ink)), color-mix(in srgb, var(--accent) 6%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow: inset 12px 0 24px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.fame-hall .fame-trophy-stem {
+  top: 61%;
+  width: 18%;
+  height: 18%;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 35%, transparent), color-mix(in srgb, var(--accent) 12%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.fame-hall .fame-trophy-base {
+  top: 78%;
+  width: 58%;
+  height: 9%;
+  clip-path: polygon(6% 0, 94% 0, 100% 100%, 0 100%);
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface-ink));
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.fame-hall .fame-trophy-copy {
+  position: absolute;
+  inset: 22% 18% 42%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font: 500 8px/1.9 var(--font-mono);
+  letter-spacing: 0.18em;
+  color: color-mix(in srgb, var(--accent) 85%, white);
+  white-space: pre-line;
+}
+
+.fame-hall .fame-node {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.fame-hall .fame-node:nth-of-type(1) {
+  left: 8%;
+  top: 48%;
+}
+
+.fame-hall .fame-node:nth-of-type(2) {
+  right: 18%;
+  top: 22%;
+  width: 5px;
+  height: 5px;
+}
+
+.fame-hall .fame-node:nth-of-type(3) {
+  right: 28%;
+  bottom: 18%;
+}
+
+.fame-hall .fame-side-copy {
+  position: absolute;
+  right: 7%;
+  bottom: 16%;
+  font: 500 8px/1.8 var(--font-mono);
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.fame-hall .fame-aside {
+  position: absolute;
+  right: 8%;
+  top: 14%;
+  max-width: 12ch;
+  font: 500 8px/1.8 var(--font-mono);
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.fame-hall .fame-section {
+  padding-block: 2.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.fame-hall .fame-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.6rem;
+}
+
+.fame-hall .fame-section-heading > p {
+  max-width: 48ch;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.fame-hall .fame-section-heading > .fame-kicker {
+  max-width: none;
+  margin: 0;
+  font: 500 10px/1.7 var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fame-hall .fame-spot-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 1fr;
+  gap: 0.85rem;
+  align-items: stretch;
+}
+
+.fame-hall .fame-spot {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.fame-hall .fame-spot-primary {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  background: var(--surface-ink);
+}
+
+.fame-hall .fame-spot-primary::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: auto -10% -20% 28%;
+  height: 70%;
+  background: radial-gradient(
+    ellipse at 70% 40%,
+    color-mix(in srgb, var(--accent) 18%, transparent),
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.fame-hall .fame-spot-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font: 500 9px/1.6 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fame-hall .fame-spot h3 {
+  margin-top: 0.85rem;
+  font: 600 clamp(1.45rem, 2vw, 2rem) / 1.1 var(--font-display);
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.fame-hall .fame-spot-primary h3 {
+  max-width: 14ch;
+  margin-top: 1.4rem;
+  font-size: clamp(2.1rem, 3vw, 3.1rem);
+}
+
+.fame-hall .fame-spot p {
+  margin-top: 0.75rem;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.fame-hall .fame-spot-facts {
+  display: grid;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.4rem;
+}
+
+.fame-hall .fame-spot-primary .fame-spot-facts {
+  grid-template-columns: 1fr 1fr;
+  padding-right: 28%;
+}
+
+.fame-hall .fame-spot-facts div {
+  border-top: 1px solid var(--line);
+  padding-top: 0.85rem;
+}
+
+.fame-hall .fame-spot-facts dt {
+  font: 500 9px/1.6 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fame-hall .fame-spot-facts dd {
+  margin-top: 0.4rem;
+  font: 600 1.35rem / 1.15 var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+.fame-hall .fame-spot-primary .fame-result {
+  color: var(--accent);
+  font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+}
+
+.fame-hall .fame-spot-graphic {
+  position: absolute;
+  width: 46%;
+  height: 220px;
+  right: -2%;
+  top: 18%;
+  pointer-events: none;
+  opacity: 0.78;
+}
+
+.fame-hall .fame-spot-graphic .fame-trophy {
+  position: relative;
+  right: auto;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fame-hall .fame-spot-graphic .fame-trophy-copy {
+  font-size: 9px;
+  color: var(--accent);
+}
+
+.fame-hall .fame-timeline {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.fame-hall .fame-year-block {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7.25rem minmax(0, 1fr);
+  gap: 1.35rem 2rem;
+}
+
+.fame-hall .fame-year-block + .fame-year-block {
+  margin-top: 1.75rem;
+}
+
+.fame-hall .fame-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  left: calc(7.25rem + 2rem);
+  width: 1px;
+  background: color-mix(in srgb, var(--accent) 55%, var(--line));
+  transform-origin: top;
+}
+
+.fame-hall .fame-year {
+  font: 600 clamp(2rem, 3vw, 2.75rem) / 1 var(--font-display);
+  letter-spacing: -0.045em;
+}
+
+.fame-hall .fame-year-meta {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font: 500 10px/1.6 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fame-hall .fame-records {
+  display: grid;
+  gap: 0.65rem;
+  padding-left: 1.45rem;
+}
+
+.fame-hall .fame-record {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.6fr) auto;
+  gap: 0.85rem 1.25rem;
+  align-items: start;
+  padding: 1rem 1rem 1rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.fame-hall .fame-record::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: calc(-1.45rem - 4px);
+  top: 1.35rem;
+  border-radius: 50%;
+  background: var(--background);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 3px var(--background);
+}
+
+.fame-hall .fame-record h4 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.fame-hall .fame-record-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: 0.4rem;
+  font: 500 9px/1.6 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fame-hall .fame-record-meta span {
+  color: var(--accent);
+}
+
+.fame-hall .fame-record > p {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.fame-hall .fame-record-aside {
+  display: grid;
+  justify-items: start;
+  gap: 0.45rem;
+}
+
+.fame-hall .fame-chip {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2rem;
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+.fame-hall .fame-by {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.fame-hall .fame-by strong {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.fame-hall .fame-culture {
+  background: var(--surface-ink);
+}
+
+.fame-hall .fame-tiles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.fame-hall .fame-tile {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 1rem 0.95rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--background) 55%, var(--surface-ink));
+}
+
+.fame-hall .fame-tile svg {
+  color: var(--accent);
+}
+
+.fame-hall .fame-tile h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.fame-hall .fame-tile p {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.fame-hall .fame-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.15fr 1.15fr 5.5rem;
+  gap: 2.25rem;
+  align-items: center;
+  padding: 2.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-ink);
+}
+
+.fame-hall .fame-cta-orbit {
+  position: absolute;
+  z-index: -1;
+  inset: -20% auto -30% -18%;
+  width: 52%;
+  pointer-events: none;
+}
+
+.fame-hall .fame-cta-orbit .fame-orbit,
+.fame-hall .fame-cta-orbit .fame-glow {
+  position: absolute;
+}
+
+.fame-hall .fame-cta-orbit .fame-glow {
+  width: 360px;
+  height: 360px;
+  left: 8%;
+  top: 18%;
+  right: auto;
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    color-mix(in srgb, var(--accent) 16%, transparent),
+    transparent 64%
+  );
+}
+
+.fame-hall .fame-cta-orbit .fame-orbit-1 {
+  width: 280px;
+  height: 280px;
+  left: 12%;
+  top: 22%;
+  right: auto;
+}
+
+.fame-hall .fame-cta-orbit .fame-orbit-2 {
+  width: 420px;
+  height: 160px;
+  left: 4%;
+  top: 38%;
+  right: auto;
+}
+
+.fame-hall .fame-cta h2 {
+  max-width: 12ch;
+  font-size: clamp(1.7rem, 2.5vw, 2.35rem);
+}
+
+.fame-hall .fame-cta h2 span {
+  color: var(--accent);
+}
+
+.fame-hall .fame-cta > div > p:not(.fame-label) {
+  max-width: 46ch;
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.fame-hall .fame-cta-lead {
+  color: var(--foreground) !important;
+  font-size: 1rem !important;
+  font-weight: 600;
+}
+
+.fame-hall .fame-disclosure {
+  margin: 0 0 1rem;
+  text-align: right;
+}
+
+.fame-hall .fame-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.fame-hall .fame-cta-actions a {
+  min-height: 44px;
+  font-size: 0.78rem;
+}
+
+.fame-hall .fame-cta-note {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 1px solid var(--accent);
+  font: 500 8px/1.8 var(--font-mono);
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.fame-hall .fame-cta-note::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  left: -3.5px;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+[data-theme="light"] .fame-hall .fame-hero-visual,
+[data-theme="light"] .fame-hall .fame-spot-primary::before,
+[data-theme="light"] .fame-hall .fame-cta-orbit {
+  opacity: 0.55;
+}
+
+[data-theme="light"] .fame-hall .fame-glow,
+[data-theme="light"] .fame-hall .fame-spot-primary::before {
+  background: radial-gradient(
+    ellipse at 42% 38%,
+    color-mix(in srgb, var(--accent) 12%, transparent),
+    transparent 64%
+  );
+}
+
+[data-theme="light"] .fame-hall .fame-tile {
+  background: var(--surface);
+}
+
+[data-theme="light"] .fame-hall .fame-spot-primary,
+[data-theme="light"] .fame-hall .fame-cta,
+[data-theme="light"] .fame-hall .fame-culture {
+  background: var(--surface);
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .fame-hall [data-pointer="fame"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 280px 210px at var(--pointer-x, 50%) var(--pointer-y, 50%),
+      color-mix(in srgb, var(--accent) 9%, transparent),
+      transparent 72%
+    );
+    opacity: 0;
+    transition: opacity 350ms var(--ease-out);
+  }
+
+  .fame-hall [data-pointer="fame"]:is([data-pointer-active], :focus-within)::after {
+    opacity: 1;
+  }
+
+  .fame-hall :is(.fame-spot, .fame-record, .fame-tile, .fame-cta) {
+    transition: border-color 300ms var(--ease-out);
+  }
+
+  .fame-hall :is(.fame-spot, .fame-record, .fame-tile):is(:hover, :focus-within) {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  }
+
+  .fame-hall .fame-spot-graphic {
+    transition: transform 450ms var(--ease-out);
+  }
+
+  .fame-hall .fame-spot-primary:is(:hover, :focus-within) .fame-spot-graphic {
+    transform: translateY(-4px);
+  }
+
+  .fame-hall .fame-hero-actions a svg,
+  .fame-hall .fame-cta-actions a svg {
+    transition: transform 250ms var(--ease-out);
+  }
+
+  .fame-hall .fame-hero-actions a:is(:hover, :focus-visible) svg,
+  .fame-hall .fame-cta-actions a:is(:hover, :focus-visible) svg {
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fame-hall [data-fame-reveal][data-fame-entered] {
+    animation: fame-intro 600ms var(--ease-out) both;
+  }
+
+  .fame-hall .fame-timeline[data-fame-entered]::before {
+    animation: fame-path-y 1100ms linear both;
+  }
+
+  .fame-hall .fame-timeline[data-fame-entered] .fame-record::before {
+    animation: fame-node 400ms ease both;
+  }
+}
+
+@keyframes fame-intro {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fame-path-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fame-node {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1100px) {
+  .fame-hall .fame-hero-copy {
+    width: 62%;
+  }
+
+  .fame-hall .fame-spot-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fame-hall .fame-spot-primary {
+    grid-column: 1 / -1;
+  }
+
+  .fame-hall .fame-spot-primary .fame-spot-facts {
+    padding-right: 32%;
+  }
+
+  .fame-hall .fame-tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fame-hall .fame-cta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fame-hall .fame-cta-note {
+    display: none;
+  }
+
+  .fame-hall .fame-aside {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .fame-hall .fame-hero-copy {
+    width: 100%;
+    padding-block: 3rem;
+  }
+
+  .fame-hall .fame-hero-visual {
+    left: 28%;
+    opacity: 0.2;
+  }
+
+  .fame-hall .fame-hero-visual .fame-trophy-copy,
+  .fame-hall .fame-side-copy,
+  .fame-hall .fame-laurels {
+    display: none;
+  }
+
+  [data-theme="light"] .fame-hall .fame-hero-visual {
+    opacity: 0.14;
+  }
+
+  .fame-hall .fame-section {
+    padding-block: 2.4rem;
+  }
+
+  .fame-hall .fame-section-heading {
+    display: block;
+  }
+
+  .fame-hall .fame-section-heading > p {
+    margin-top: 0.9rem;
+  }
+
+  .fame-hall .fame-spot-grid,
+  .fame-hall .fame-tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .fame-hall .fame-spot-primary .fame-spot-facts,
+  .fame-hall .fame-spot-facts {
+    grid-template-columns: 1fr;
+    padding-right: 0;
+  }
+
+  .fame-hall .fame-spot-graphic {
+    width: 42%;
+    height: 140px;
+    top: 8%;
+    opacity: 0.35;
+  }
+
+  .fame-hall .fame-spot-primary h3 {
+    max-width: none;
+    padding-right: 30%;
+    font-size: 2.15rem;
+  }
+
+  .fame-hall .fame-year-block {
+    grid-template-columns: 1fr;
+    padding-left: 1.25rem;
+  }
+
+  .fame-hall .fame-timeline::before {
+    left: 0.35rem;
+  }
+
+  .fame-hall .fame-records {
+    padding-left: 0;
+  }
+
+  .fame-hall .fame-record {
+    grid-template-columns: 1fr;
+    padding-left: 1rem;
+  }
+
+  .fame-hall .fame-record::before {
+    left: -1.05rem;
+    top: 1.2rem;
+  }
+
+  .fame-hall .fame-cta {
+    grid-template-columns: 1fr;
+    padding: 1.4rem;
+    gap: 1.35rem;
+  }
+
+  .fame-hall .fame-cta-orbit {
+    width: 80%;
+    opacity: 0.28;
+  }
+
+  .fame-hall .fame-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
