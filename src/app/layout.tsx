@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     template: `%s · ${site.shortName}`,
   },
   description: site.description,
+  icons: {
+    icon: [
+      { url: "/images/sait-logo-light.png", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/images/sait-logo-dark.png", type: "image/png", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
 };
 
 export default function RootLayout({

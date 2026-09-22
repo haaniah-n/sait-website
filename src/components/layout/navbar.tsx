@@ -98,7 +98,7 @@ export function Navbar() {
       ref={headerRef}
       className="sticky top-0 z-50 border-b border-line bg-nav text-nav-fg"
     >
-      <Container className={cn("flex h-16 items-center justify-between gap-2 sm:gap-4", pathname === "/" && "max-w-7xl sm:px-8 lg:px-10")}>
+      <Container className="flex h-16 items-center justify-between gap-2 sm:gap-4 max-w-7xl sm:px-8 lg:px-10">
         {/* Brand */}
         <Link
           href={siteRoutes.home}

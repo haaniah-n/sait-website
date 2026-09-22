@@ -48,6 +48,7 @@ export function AchievementsSection() {
             >
               <Link
                 href="/achievements"
+                data-pointer="spotlight"
                 className="achievement-row group grid gap-6 border-b border-line py-8 transition-colors duration-[var(--duration-base)] hover:bg-surface-2 sm:grid-cols-[72px_110px_1fr_auto] sm:items-center sm:gap-8 sm:py-9"
               >
                 {/* Number */}

@@ -92,7 +92,7 @@ export function ProjectCarousel() {
         {featuredProjects.map((project,index) => {
           const selected = index === active;
           const position = selected ? "active" : index === (active + 1) % count ? "next" : "previous";
-          return <article key={project.id} className="showcase-slide" data-position={position} role="group" aria-roledescription="slide" aria-label={`${index+1} of ${count}: ${project.title}`} aria-hidden={!selected} inert={!selected}>
+          return <article key={project.id} className="showcase-slide" data-pointer="spotlight" data-position={position} role="group" aria-roledescription="slide" aria-label={`${index+1} of ${count}: ${project.title}`} aria-hidden={!selected} inert={!selected}>
             <div className="showcase-slide-top"><span>{String(index+1).padStart(2,"0")}</span><span>Featured project</span></div>
             <div className="showcase-slide-content">
               <div className="showcase-project-copy">

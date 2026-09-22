@@ -13,7 +13,7 @@ const month = new Intl.DateTimeFormat("en-GB", { month: "short", timeZone: "UTC"
 export function FeaturedEvents() {
   return <section className="home-events home-event-pulse border-b border-line bg-surface" aria-labelledby="home-events-heading">
     <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-      <div className="home-events-intro">
+      <div className="home-events-intro" data-choreography="intro">
         <span className="events-outline" aria-hidden="true">EVENTS</span>
         <div>
           <p className="events-eyebrow">03 / Events / What&apos;s happening</p>
@@ -23,7 +23,7 @@ export function FeaturedEvents() {
         <p className="events-intro">Discover workshops, competitions, meetups, and experiences happening across the SAIT community.</p>
       </div>
       <EventPulse />
-      <article className="event-poster home-event-poster" aria-labelledby="home-featured-event">
+      <article className="event-poster home-event-poster" data-pointer="spotlight" aria-labelledby="home-featured-event">
         <div className="event-poster-photo" aria-hidden="true">
           <Image src="/images/sait-hero-campus-dark.png" alt="" fill sizes="(max-width: 767px) 100vw, 65vw" className="poster-photo-dark" />
           <Image src="/images/sait-hero-campus-light.png" alt="" fill sizes="(max-width: 767px) 100vw, 65vw" className="poster-photo-light" />

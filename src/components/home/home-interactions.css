@@ -21,3 +21,28 @@
 @keyframes orbit-signal { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
 @keyframes node-arrive { from { opacity: .3; } to { opacity: 1; } }
 @keyframes line-arrive { from { opacity: .1; } to { opacity: .6; } }
+
+/* Selected homepage surfaces share the existing frame-batched pointer hook. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .sait-home [data-pointer="spotlight"]::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(ellipse 300px 240px at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 7%, transparent), transparent 75%);
+    opacity: 0; transition: opacity 350ms var(--ease-out);
+  }
+  .sait-home [data-pointer="spotlight"]:is([data-pointer-active], :focus-within)::after { opacity: 1; }
+  .sait-home .showcase-slide:not([data-position="active"])::after { opacity: 0; }
+  .sait-home .showcase-slide[data-position="active"]:is(:hover, :focus-within),
+  .sait-home .achievement-row:is(:hover, :focus-visible) { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+  .sait-home .achievement-row > span:first-child { transition: color var(--duration-base) var(--ease-out); }
+  .sait-home .achievement-row:is(:hover, :focus-visible) > span:first-child { color: var(--accent); }
+  .sait-home .achievement-row > span:last-child { transform: none; }
+  .sait-home .achievement-row:is(:hover, :focus-visible) > span:last-child { transform: translate(3px, -3px); color: var(--accent); border-color: var(--accent); }
+  .sait-home :is(.poster-cta, .showcase-project-copy a, .showcase-ending a, .home-events-all a, .home-past-heading a) > svg { transition: transform var(--duration-fast) var(--ease-out); }
+  .sait-home :is(.poster-cta, .showcase-project-copy a, .showcase-ending a, .home-events-all a, .home-past-heading a):is(:hover, :focus-visible) > svg { transform: translate(3px, -3px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sait-home .home-reveal:has(h2) { transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
+  .sait-home .home-reveal[data-pending]:has(h2) { opacity: 0; transform: translateY(14px); }
+  .sait-home [data-choreography="intro"][data-entered] { animation: home-intro-arrive 600ms var(--ease-out) both; }
+}
+@keyframes home-intro-arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
